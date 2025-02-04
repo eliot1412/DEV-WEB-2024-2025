@@ -1,20 +1,31 @@
-*{
-    list-style: none;
-    text-decoration: none;
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 }
+
+
 .title h1 {
     text-align: center;
-}
-.info form input{
-    align-items: right;
-}
-.info form{
-    text-align: center ;
+    margin-bottom: 20px;
+    padding: 40px;
 }
 
-.info form p{
+.info{
     text-align: center ;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.input-group input {
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 
