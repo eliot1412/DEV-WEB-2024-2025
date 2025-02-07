@@ -1,0 +1,41 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.title h1 {
+    text-align: center;
+     color: #FFBF09;
+    margin-bottom: 20px;
+    background-color: blue;
+    margin:  10% 10% 10% 10%;
+    padding: 40px;
+}
+
+.info{
+    text-align: center ;
+    padding: 10px;
+    background-color: #fff;
+    border: salmon;
+
+}
+
+.input-group input {
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: auto;
+}
+
+#email{
+    align-items: ;
+}
+
+
