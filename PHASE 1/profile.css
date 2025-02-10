@@ -2,10 +2,12 @@
     text-decoration: none;
 }
 
+
+
 .head ul {
     display: flex;
     justify-content: space-between;
-    background-color: #24527A; 
+    background-color: #499ddb; 
     padding: 10px;
     list-style: none;
     font-size: xx-large;
@@ -18,7 +20,7 @@
 .tail {
     display: flex;
     justify-content: center;
-    background-color: #24527A;
+    background-color: #499ddb;
     padding: 10px;
     border-radius: 10px;
 }
@@ -33,12 +35,12 @@
     transform: scale(90%);
 }
 .head img{
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     margin-left: 10px;  
     margin-top: 10px;   
     position: relative; 
-    top: 5px;
+    top: 0px;
     left: -5px;
     border-radius: 10px;          
 }
@@ -47,11 +49,11 @@
 .table {
     display: flex;
     gap: 20px;
-    align-items: stretch;
+    
 }
 
 .side {
-    background-color: #24527A; 
+    background-color: #499ddb; 
     width: 100px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -72,20 +74,13 @@
 }
 
 .Principal {
-    background-color: #616060; 
+    background-color: #F5F5F5; 
     margin-bottom: 20px;
     flex-grow: 1;
     gap: 20px;
-    padding: 15px;
-    border-radius: 10px; 
-}
-
-.Principal{
+    min-height: 75vh;
+    border-radius: 10px;
     font-size: large;
-    color: #cdcdcd; 
-}
-
-.personal_data ul,
-.Scolarité ul {
-    list-style: square;
+    color: #000000; 
+    
 }
