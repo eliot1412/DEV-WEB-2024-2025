@@ -6,8 +6,19 @@
     <link rel="stylesheet" type="text/css" href="reglog.css">
 </head>
 <body>
+    
+
+    <div class="head">
+        
+        <ul>
+            <a href="acceuil.html">
+                <img src="cinetravely.jpg" alt="Acceuil">
+            </a>
+        </ul>
+    </div>
+
     <div class="title">
-        <h1>Inscrivez-vous pour profiter du meilleur de Ciné-Travelly</h1>
+        <h1>Inscrivez-vous pour profiter du meilleur de Closed Territory</h1>
     </div>
 
     <div class="info">
@@ -18,6 +29,7 @@
                 <input type="text" id="fname" name="fname" />
             </div>
             <p></p>
+
             <div class="input-group">
                 <label for="lname">Prénom :</label>
                 <input type="text" id="lname" name="lname" />
@@ -32,14 +44,10 @@
 
             <div class="input-group">
                 <label for="date">Date de naissance :</label>
-                <p></p>
-                <label for="date">jj/mm/aaaa :</label>
-                <input type="number" id="date-day" name="date-day" min="1" max="31" value="1" step="1" />
-                <input type="number" id="date-month" name="date-month" min="1" max="12" value="1" step="1" />
-                <input type="number" id="date-year" name="date-year" min="1960" max="2025" value="2025" step="1" />
+                <input type="date" id="date-day" name="date"/>
             </div>
             <p></p>
-
+            
             <div class="input-group">
                 <label for="password">Mot de passe :</label>
                 <input type="password" name="password" size="20" maxlength="15" />
@@ -47,15 +55,29 @@
             <p></p>
 
 
+            <div class="input-group">
+                <label for="password">Confirmer votre mot de passe :</label>
+                <input type="password" name="password" size="20" maxlength="15" />
+            </div>
+            <p></p>
+
             <div class="button-group">
                 <button type="button">Envoyer</button><br>
             </div>
-
-            <div>
-                <pre>Vous avez déjà un compte?</pre><a href="log.html"> <pre>Connectez vous</pre></a>
+            <p></p>
+            
+            <div class="changep">
+                <p>Vous avez déjà un compte?  </p><a href="log.html"> <pre>Connectez vous</pre></a>
             </div>
 
+
         </form>
+    </div>
+    <div class="tail">
+        <a href="accueil.html">
+            <p>Acceuil</p>
+        </a>
+        <p>|S.A.V|...</p>
     </div>
 </body>
 </html>
