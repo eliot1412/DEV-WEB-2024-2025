@@ -1,0 +1,97 @@
+
+
+
+
+.head ul {
+    display: flex;
+    justify-content: space-between;
+    background-color: #6d071a; 
+    padding: 10px;
+    list-style: none;
+    font-size: xx-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+ 
+.tail {
+    display: flex;
+    justify-content: center;
+    background-color: #6d071a;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.tail p {
+    color: white;
+}
+
+
+.head a:hover,
+button:hover{
+    transform: scale(90%);
+}
+.head img{
+    width: 75px;
+    height: 75px;
+    margin-left: 10px;  
+    margin-top: 10px;   
+    position: relative; 
+    top: 0px;
+    left: -5px;
+    border-radius: 20px;          
+}
+.head button{
+    border-radius: 40px;
+}
+
+
+.table {
+    display: flex;
+    gap: 20px;
+    
+}
+
+.profile {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Principal {
+    background-color: #d1d1d1; 
+    margin-bottom: 20px;
+    flex-grow: 1;
+    gap: 20px;
+    min-height: 75vh;
+    border-radius: 10px;
+    font-size: large;
+    color: #000000; 
+    
+}
+
+.form .users,
+.form .reservation{
+    
+    border: 5px solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-right:33%;
+    
+}
+
+.form h2, h3, p{
+    margin-left: 20px;
+}
+
+
+.form{
+    margin: 20px;
+}
+
+
