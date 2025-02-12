@@ -17,6 +17,8 @@ body {
     font-size: xx-large;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     border-radius: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
 
 }
 
@@ -112,6 +114,6 @@ body {
     text-align: center;
 }
 
-#space{
-    padding: 5%;
+#log{
+    padding: 5w%;
 }
