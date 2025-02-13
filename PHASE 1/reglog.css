@@ -1,12 +1,5 @@
 
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
+    /*head part*/
 
 .head ul {
     display: flex;
@@ -21,26 +14,11 @@ body {
     margin-bottom: 20px;
 
 }
-
-.tail {
-    display: flex;
-    justify-content: center;
-    background-color: #6d071a;
-    padding: 10px;
-    border-radius: 10px;
-
- 
-}
-
-
-.tail p {
-    color: white;
-}
-
-
+    
 .head a:hover{
     transform: scale(90%);
 }
+
 .head img{
     width: 75px;
     height: 75px;
@@ -49,9 +27,8 @@ body {
     position: relative; 
     top: 0px;
     left: -5px;
-    border-radius: 10px;          
+    border-radius: 20px;          
 }
-
 
 .title h1 {
     text-align: center;
@@ -63,6 +40,16 @@ body {
     padding: 40px;
 }
 
+
+
+    /*body part*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+
+
 .info{
     text-align: center;
     padding: 20px;
@@ -70,10 +57,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 3%;
-    margin-bottom: 5%;
+    margin: 3% 5% 5% 5%;
+    font-size: large;
+
+
 
 
 }
@@ -109,11 +96,33 @@ body {
 
 
 
-.changep{
-
+.changep p,pre{
     text-align: center;
+    display: inline;
 }
 
 #log{
     padding: 5%;
 }
+
+
+    /*Tail part*/
+
+.tail {
+    display: flex;
+    justify-content: center;
+    background-color: #6d071a;
+    padding: 10px;
+    border-radius: 10px;
+
+ 
+}
+
+
+.tail p {
+    color: white;
+}
+
+
+
+
