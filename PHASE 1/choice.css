@@ -139,3 +139,8 @@ body {
         transform: translateX(0);
     }
 }
+.contenu {
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
