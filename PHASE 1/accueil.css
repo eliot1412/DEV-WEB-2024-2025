@@ -1,6 +1,6 @@
 body {
 
-    background-image: url(MeilleurQualiHolly.jpg);
+   
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8,30 +8,24 @@ body {
 
 }
 
-.société h1 {
-    margin-top: 20px;
-    font-size: 50px;
-    color: rgb(93, 223, 255);
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    font-style: italic;
-    
 
-}
 .société {
-
+    
     justify-content: space-between;
     display: flex;
     list-style:none;
 
 }
+.Centre {
 
+    background-image: url(MeilleurQualiHolly.jpg);
+    min-height: 80vh;
+
+}
 .Centre pre {
 
-    border: 2px solid black;
-   
     text-decoration: none;    
-    color: black;
+    color: white;
     font-size: 20px;
 
 }
@@ -44,43 +38,49 @@ body {
 .société a {
     text-decoration: none;
     font-size: 20px;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 1px;             
     text-decoration: none;    
-    color: black;
-    margin-left: 10px;
-    
-}
-.head a:hover {
-    transform: scale(90%);
-}
-
-.head img {
-    width: 50px;
-    height: 50px;
+    color: white;
     margin-left: 10px;
     margin-top: 10px;
-    position: relative;
-    top: 5px;
-    left: -5px;
     border-radius: 10px;
+    
 }
+
 
 .head a:hover {
     transform: scale(90%);
 }
 .head {
-
- display: flex;
- justify-content: space-between;
+    border-radius: 10px;
+    background-color: #6d071a; 
+    display:flex;
+    justify-content: space-between;
+   
 }
 .head img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 0px;
     position: relative;
     top: 5px;
     left: -5px;
     border-radius: 10px;
 }	
+.bottom {
+    margin-top:20px;
+    display: flex;
+    justify-content: center;
+    background-color: #6d071a ;
+    padding: 10px;
+    border-radius: 10px;
+}
+.bottom p {
+
+
+color:white;
+
+}
+
