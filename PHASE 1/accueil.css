@@ -14,10 +14,6 @@ body {
     display: flex;
     list-style: none;
     padding: 10px 20px;
-    background: rgba(109, 7, 26, 0.8);
-    border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .société ul {
@@ -44,7 +40,7 @@ body {
 }
 
 .Centre {
-    background-image: url(Volcan4k.jpg);
+    background-image: url(VolcanBack.jpg);
     min-height: 80vh;
     background-size: cover;
     background-position: center;
@@ -54,6 +50,11 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .Centre::before {
@@ -114,19 +115,12 @@ body {
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .bottom p {
     color: white;
     font-size: 18px;
-    margin: 0;
-}
-
-
-@keyframes glowText {
-    0%, 100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); }
-    50% { text-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+    
 }
 
 .Centre h1 {
