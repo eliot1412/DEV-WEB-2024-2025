@@ -1,10 +1,7 @@
-
-
-
 .head ul {
     display: flex;
     justify-content: space-between;
-    background-color: #499ddb; 
+    background-color: #6d071a; 
     padding: 10px;
     list-style: none;
     font-size: xx-large;
@@ -19,99 +16,7 @@
 .tail {
     display: flex;
     justify-content: center;
-    background-color: #499ddb;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.head p,
-.tail p {
-    color: white;
-}
-
-
-.head a:hover{
-    transform: scale(90%);
-}
-.head img{
-    width: 75px;
-    height: 75px;
-    margin-left: 10px;  
-    margin-top: 10px;   
-    position: relative; 
-    top: 0px;
-    left: -5px;
-    border-radius: 10px;          
-}
-
-
-
-.head ul {
-    display: flex;
-    justify-content: space-between;
-    background-color: #499ddb; 
-    padding: 10px;
-    list-style: none;
-    font-size: xx-large;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    border-radius: 10px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-
- 
-.tail {
-    display: flex;
-    justify-content: center;
-    background-color: #499ddb;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.head p,
-.tail p {
-    color: white;
-}
-
-
-.head a:hover{
-    transform: scale(90%);
-}
-.head img{
-    width: 75px;
-    height: 75px;
-    margin-left: 10px;  
-    margin-top: 10px;   
-    position: relative; 
-    top: 0px;
-    left: -5px;
-    border-radius: 10px;          
-}
-
-
-
-
-
-.head ul {
-    display: flex;
-    justify-content: space-between;
-    background-color: #499ddb; 
-    padding: 10px;
-    list-style: none;
-    font-size: xx-large;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    border-radius: 10px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-
- 
-.tail {
-    display: flex;
-    justify-content: center;
-    background-color: #499ddb;
+    background-color: #6d071a;
     padding: 10px;
     border-radius: 10px;
 }
@@ -144,7 +49,7 @@
 }
 
 .side {
-    background-color: #499ddb; 
+    background-color: #6d071a; 
     width: 100px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -165,7 +70,7 @@
 }
 
 .Principal {
-    background-color: #F5F5F5; 
+    background-color: #c6c4c4; 
     margin-bottom: 20px;
     flex-grow: 1;
     gap: 20px;
