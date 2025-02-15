@@ -13,7 +13,6 @@ body {
 }
 
 .top ul {
-
     display: flex;
     justify-content:space-between; 
 
@@ -21,9 +20,10 @@ body {
 
 .aides a {
 
-    padding: 20px;
+    padding: 10px 15px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
+    margin:5px;
 
 }
 
@@ -42,6 +42,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
     position: relative;
     z-index: 10;
+   
 }
 
 .top a:hover {
