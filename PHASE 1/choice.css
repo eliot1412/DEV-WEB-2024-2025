@@ -62,7 +62,7 @@ body {
 }
 
 .top img:hover {
-    transform: scale(1.1); 
+    transform: scale(0.9); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
@@ -113,6 +113,13 @@ body {
     animation: slideUp 1.5s ease-in-out; 
 }
 
+.research button:hover {
+
+    transform: scale(0.9);
+
+
+
+}
 
 @keyframes fadeIn {
     from {
