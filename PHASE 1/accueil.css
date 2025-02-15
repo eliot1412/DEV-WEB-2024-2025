@@ -71,7 +71,7 @@ body {
 .Centre pre {
     text-decoration: none;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     z-index: 2;
     animation: fadeIn 2s ease-in-out;
 }
