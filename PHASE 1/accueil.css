@@ -28,7 +28,7 @@ body {
     text-decoration: none;
     font-size: 20px;
     border: 2px solid white;
-    padding: 10px 20px;
+    padding: 5px 15px;
     color: white;
     border-radius: 10px;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
@@ -71,7 +71,7 @@ body {
 .Centre pre {
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     z-index: 2;
     animation: fadeIn 2s ease-in-out;
 }
