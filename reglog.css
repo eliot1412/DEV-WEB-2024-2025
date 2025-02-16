@@ -1,0 +1,190 @@
+/* this css is for the login, register and the presentation page */
+
+    /*head part*/
+
+    .head {
+        border-radius: 10px;
+        background-color: #6d071a;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .société {
+        justify-content: space-between;
+        display: flex;
+        list-style: none;
+        padding: 10px 20px;
+    }
+    
+    .société ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .société a {
+        text-decoration: none;
+        font-size: 20px;
+        border: 2px solid white;
+        padding: 5px 15px;
+        color: white;
+        border-radius: 10px;
+        transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .société a:hover {
+        background-color: #8a0a24;
+        color: #ffcc00;
+    }
+    .head img:hover {
+        transform: scale(80%);
+    }
+    
+    .head a:hover {
+        transform: scale(0.9);
+    } 
+
+.head img{
+    width: 75px;
+    height: 75px;
+    margin-left: 10px;  
+    margin-top: 10px;   
+    position: relative; 
+    top: 0px;
+    left: -5px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;   
+}
+
+.title h1 {
+    text-align: center;
+     color: #FFBF09;
+    margin-bottom: 20px;
+    background-color: #6d071a;
+    border-radius: 10px;
+    margin:  5% 10% 5% 10%;
+    padding: 40px;
+}
+
+
+
+    /*body part*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+
+
+.info{
+    text-align: center;
+    padding: 20px;
+    background-color: #D1D1D1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin: 3% 5% 5% 5%;
+    font-size: large;
+
+
+
+
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #535353 ;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    background-color: #FFBF09;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-group button:hover {
+    background-color: #e6ac00;
+    transform: scale(90%);
+}
+
+
+
+
+.changep p,pre{
+    text-align: center;
+    display: inline;
+}
+
+#log{
+    padding: 5%;
+}
+
+
+    /*Tail part*/
+
+.tail {
+    display: flex;
+    justify-content: center;
+    background-color: #6d071a;
+    padding: 10px;
+    border-radius: 10px;
+
+ 
+}
+
+
+.tail p {
+    color: white;
+}
+
+
+
+
+
+/* search bar for  */
+.search-bar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-bar input {
+    padding: 8px;
+    width: 60%;
+    border: 1px solid #535353;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background-color: #FFBF09;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-bar button:hover {
+    background-color: #e6ac00;
+    transform: scale(90%);
+}
+
+
+
+
