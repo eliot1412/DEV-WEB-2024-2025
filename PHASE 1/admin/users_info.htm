@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Page admin</title>
-    <link rel="stylesheet" type="text/css" href="../admin.css">
+    <title>Gestions utilisateurs</title>
+    <link rel="stylesheet" type="text/css" href="users_info.css">
     <meta charset="UTF-8">
 </head>
 <body>
@@ -16,11 +16,11 @@
         <div class="société">
             
             <ul>
-                <li><a href="accueil.html">Accueil</a></li>
-                <li><a href="reg.html">Inscription</a></li>
-                <li><a href="log.html">Connexion</a></li>
-                <li><a href="choice.html">Voyages</a></li>
-                <li><a href="aides.html">Aides</a></li>
+                <li><a href="../accueil.html">Accueil</a></li>
+                <li><a href="../reg.html">Inscription</a></li>
+                <li><a href="../log.html">Connexion</a></li>
+                <li><a href="../choice.html">Voyages</a></li>
+                <li><a href="../aides.html">Aides</a></li>
                 
             </ul>
         </div>
@@ -37,18 +37,52 @@
         </div>
         
         <div class="Principal">
-            <div class="stats">
+            
                 <div class="stat-box">
                     <h2>Utilisateurs</h2>
                     <p>📌 1 250 inscrits</p>
                 </div>
-                <div class="stat-box">
-                    <h2>Réservations</h2>
-                    <p>🛫 340 réservations ce mois</p>
-                </div>
-                <div class="stat-box">
-                    <h2>Revenus</h2>
-                    <p>💰 125 000 € générés</p>
+                <div class="users-tool">
+                    <div class="research-users">
+
+                        <input type="text" class="search-box" placeholder="Rechercher un utilisateur...">
+                        <button class="search-button">🔍</button>
+    
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom-Prénom</th>
+                                <th>N°d'utilisateur</th>
+                                <th>Âge</th>
+                                <th>Email</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mr.X</td>
+                                <td>123456789</td>
+                                <td>101</td>
+                                <td>jean.dupont@email.com</td>
+                                <td><button>ban/unban</button></td>
+                            </tr>
+                            <tr>
+                                <td>Mr.Y</td>
+                                <td>123456789</td>
+                                <td>100</td>
+                                <td>jean.dupont@email.com</td>
+                                <td><button>ban/unban</button></td>
+                            </tr>
+                            <tr>
+                                <td>Mr.Z</td>
+                                <td>123456789</td>
+                                <td>99</td>
+                                <td>jean.dupont@email.com</td>
+                                <td><button>ban/unban</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
