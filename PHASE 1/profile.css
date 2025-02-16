@@ -11,6 +11,35 @@
     margin-bottom: 20px;
 }
 
+.société {
+    justify-content: space-between;
+    display: flex;
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.société ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.société a {
+    text-decoration: none;
+    font-size: 20px;
+    border: 2px solid white;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.société a:hover {
+    background-color: #8a0a24;
+    color: #ffcc00;
+}
 
  
 .tail {
@@ -21,7 +50,7 @@
     border-radius: 10px;
 }
 
-.head p,
+
 .tail p {
     color: white;
 }
