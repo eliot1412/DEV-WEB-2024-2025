@@ -1,7 +1,9 @@
 
+
 body{
-    background-image: url(VolcanBack.jpg);
+    background-image: url(../VolcanBack.jpg);
 }
+
 
 .head {
     border-radius: 10px;
@@ -94,7 +96,6 @@ body{
 }
 
 .Principal {
-    display: flex;
     background-color: #d1d1d100; 
     margin-bottom: 20px;
     flex-grow: 1;
@@ -102,11 +103,54 @@ body{
     min-height: 75vh;
     border-radius: 10px;
     font-size: large;
-    color: #000000;
-    align-items: center;
-    flex-direction: column;
+    color: #000000; 
+    border: #000000;
     
 }
+.research-users{
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.search-box {
+    width: 300px;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+.search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.search-button:hover {
+    background-color: #0056b3;
+    scale: 90%;
+}
+.stat-box,
+.users-tool{
+    margin-left: 1em;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    width: 35em;
+    margin: 1em;
+    background-color: #6d071a81;
+}
+
+.stat-box h2, p,
+.users-tool table{
+    margin-left: 1em;
+    
+}
+
+
 
 .side {
     background-color: #6d071a; 
@@ -131,21 +175,5 @@ body{
     border-radius: 10px;
 }
 
-.stats {
-
-    display: flex;
-    justify-content: center; /* Centre horizontalement */ /* Centre verticalement */
-    gap: 2em; /* Espacement entre les éléments */
-    margin: 3em;
-    background-color: #6d071a81;
-    border-radius: 10px;
-    width: 60em;
-    height: 10em;
-}
-
-.stat-box{
-    display: grid;
-    align-items: center;
-}
 
 

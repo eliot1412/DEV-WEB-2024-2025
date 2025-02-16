@@ -1,4 +1,9 @@
 
+
+body{
+    background-image: url(../VolcanBack.jpg);
+}
+
 .head {
     border-radius: 10px;
     background-color: #6d071a;
@@ -90,7 +95,7 @@
 }
 
 .Principal {
-    background-color: #d1d1d1; 
+    background-color: #d1d1d100; 
     margin-bottom: 20px;
     flex-grow: 1;
     gap: 20px;
@@ -135,6 +140,7 @@
     border-radius: 10px;
     width: 35em;
     margin: 1em;
+    background-color: #6d071a81;
     
 }
 .stat-box{
