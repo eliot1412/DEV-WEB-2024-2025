@@ -76,6 +76,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: white;
+        background-image: url(VolcanBack.jpg);
+
 }
 
 
@@ -93,10 +95,7 @@ body {
 
 
 }
-form{
-        background-image: url(VolcanBack.jpg);
 
-}
 
 .input-group label {
     display: block;
