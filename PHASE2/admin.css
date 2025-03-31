@@ -1,0 +1,92 @@
+
+
+
+ 
+.tail {
+    display: flex;
+    justify-content: center;
+    background-color: #6d071a;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+.tail p {
+    color: white;
+}
+
+
+.table {
+    background-image: url(VolcanBack.jpg);
+    display: flex;
+    gap: 20px;
+    height: 90.5ex;
+    
+}
+
+.profile {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Principal {
+    display: flex;
+    background-color: #d1d1d100; 
+    margin-bottom: 20px;
+    flex-grow: 1;
+    gap: 20px;
+    min-height: 75vh;
+    border-radius: 10px;
+    font-size: large;
+    color: #000000;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.side {
+    background-color: #6d071a; 
+    width: 10em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    
+    display: grid;
+    
+}
+.side a{
+    text-decoration: none;
+    color: #6d071a;
+}
+.side button{
+    margin-top: 33px;
+    margin-left: 1.1em;
+    margin-right: 1em;
+    background-color: #d1d1d1;
+    max-width: 80%;
+    max-height: 90px;
+    border-radius: 10px;
+}
+
+.stats {
+
+    display: flex;
+    justify-content: center; /* Centre horizontalement */ /* Centre verticalement */
+    gap: 2em; /* Espacement entre les éléments */
+    margin: 3em;
+    background-color: #6d071a81;
+    border-radius: 10px;
+    width: 60em;
+    height: 10em;
+}
+
+.stat-box{
+    display: grid;
+    align-items: center;
+}
+
+
