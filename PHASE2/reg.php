@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,68 +29,96 @@
     </div>
   
 
-<div class="Centre">
-    <div class="title">
-        <h1>Inscrivez-vous pour profiter du meilleur de VolcanFly</h1>
-    </div>
+    <div class="Centre">
+        <div class="title">
+            <h1>Inscrivez-vous pour profiter du meilleur de VolcanFly</h1>
+        </div>
 
-    <div class="info">
-        <form action="proce.php" method="post">
+        <div class="info">
+            <form action="" method="post">
 
-            <div class="input-group">
-                <label for="fname">Nom :</label>
-                <input type="text" id="fname" name="fname" />
-            </div>
-            <p></p>
+                <div class="input-group">
+                    <label for="fname">Nom :</label>
+                    <input type="text" id="fname" name="fname" />
+                </div>
+                <p></p>
 
-            <div class="input-group">
-                <label for="lname">Prénom :</label>
-                <input type="text" id="lname" name="lname" />
-            </div>
-            <p></p>
+                <div class="input-group">
+                    <label for="lname">Prénom :</label>
+                    <input type="text" id="lname" name="lname" />
+                </div>
+                <p></p>
 
-            <div class="input-group">
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" />
-            </div>
-            <p></p>
+                <div class="input-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" />
+                </div>
+                <p></p>
 
-            <div class="input-group">
-                <label for="date">Date de naissance :</label>
-                <input type="date" id="date-day" name="date"/>
-            </div>
-            <p></p>
+                <div class="input-group">
+                    <label for="date">Date de naissance :</label>
+                    <input type="date" id="date-day" name="date"/>
+                </div>
+                <p></p>
+                
+                <div class="input-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" name="password1" size="20" maxlength="15" />
+                </div>
+                <p></p>
+
+
+                <div class="input-group">
+                    <label for="password">Confirmer votre mot de passe :</label>
+                    <input type="password" name="password" size="20" maxlength="15" />
+                </div>
+                <p></p>
+
+                <div class="button-group">
+                    <button type="submit">Envoyer</button><br>
+                </div>
+
+
+                <p></p>
+       
+            </form>
             
-            <div class="input-group">
-                <label for="password">Mot de passe :</label>
-                <input type="password" name="password" size="20" maxlength="15" />
-            </div>
-            <p></p>
-
-
-            <div class="input-group">
-                <label for="password">Confirmer votre mot de passe :</label>
-                <input type="password" name="password" size="20" maxlength="15" />
-            </div>
-            <p></p>
-
-            <div class="button-group">
-                <button type="button">Envoyer</button><br>
-            </div>
-           
-            <p></p>
-            <div class="changep">
-                <p>Vous avez déjà un compte?</p><pre> </pre><a href="log.html"><p>Connectez vous</p></a>
-            </div>
+                            <div class="changep">
+                    <p>Vous avez déjà un compte?</p><pre> </pre><a href="log.php"><p>Connectez vous</p></a>
+                </div> 
+        </div>    
     </div>
 
-        </form>
-</div>
     <div class="tail">
-        <a href="accueil.html">
+        <a href="accueil.php">
             <p>Accueil</p>
         </a>
         <p>| Destinations | Offres spéciales | Contact | À propos</p>
     </div>
+
 </body>
 </html>
+<?php   
+
+                    $name = $_POST['lname'];
+                    $firstname = $_POST['fname'];
+                    $firstname = $_POST['email'];
+                    $date = $_POST['date'];
+                    $password1 = $_POST['password1'];
+                    $password = $_POST['password'];
+                    
+                    if (empty($name) || empty($firstname) || empty($date) || empty($where) ) {
+                    echo "<p> Merci de remplir tout les champs</p>";
+                    } else if ( $password1!=$password ) {
+                        echo "<p> mauvais mot de passe</p>";
+                        } 
+
+                        else {
+                            
+                            
+                            
+
+
+                    }
+
+                ?>
