@@ -1,0 +1,3 @@
+Habilan;123;entraineur
+Eliot;456;joueur
+Jude;789;joueur
