@@ -8,18 +8,26 @@
     margin-bottom: 20px;
     background-color: #6d071a;
     border-radius: 10px;
-    margin:  5% 10% 5% 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10em; margin-right: 10em;
     padding: 40px;
 }
+
+
 
 
 
     /*body part*/
 body {
     font-family: Arial, sans-serif;
-    background-image: url(VolcanBack.jpg);
 
 
+}
+
+.Centre{
+
+    background-image: url('VolcanBack.jpg');
 }
 
 
