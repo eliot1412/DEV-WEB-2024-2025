@@ -1,7 +1,6 @@
 * {
     list-style: none;
     text-decoration: none;
-    color: rgb(232, 210, 210);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -154,21 +153,9 @@ body {
     height: 100px;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%236d071a" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,176C672,171,768,117,864,101.3C960,85,1056,107,1152,112C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat;
     background-size: cover;
-    animation: wave 5s infinite linear; 
     z-index: 2;
 }
 
-@keyframes wave {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-25%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
 
 .tail {
     display: flex;
@@ -178,7 +165,7 @@ body {
     border-radius: 10px;
 }
 .tail p {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .contenu {
