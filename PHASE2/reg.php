@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
             file_put_contents('users/' . $email . '.txt', $contenu);
 
             $_SESSION['email'] = $email;
-            header('Location: main.php');
+            header('Location: accueil.html');
             exit();
         }
     }
