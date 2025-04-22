@@ -7,19 +7,22 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <div class="head">
-        <a href="accueil.html">
-            <img src="VolcanFly.jpg" alt="Accueil">
-        </a>
-        <div></div>
+<div class="head">
+        
+        <ul>
+            <a href="accueil.php">
+                <img src="VolcanFly.jpg" alt="Accueil">
+            </a>
+            
+        </ul>
         <div class="headers">
             
             <ul>
-                <li><a href="accueil.html">Accueil</a></li>
-                <li><a href="reg.html">Inscription</a></li>
-                <li><a href="log.html">Connexion</a></li>
-                <li><a href="choice.html">Voyages</a></li>
-                <li><a href="aides.html">Aides</a></li>
+                <li><a href="accueil.php">Accueil</a></li>
+                <li><a href="reg.php">Inscription</a></li>
+                <li><a href="log.php">Connexion</a></li>
+                <li><a href="choice.php">Voyages</a></li>
+                <li><a href="aides.php">Aides</a></li>
                 
             </ul>
         </div>
@@ -30,9 +33,9 @@
     <div class="table">
         <div class="side">
             <button style="background-color: #bdbdbd7e;">Dashboard</button>
-            <button onclick="window.location.href='admin/users_info.html'">Gestions des utilisateurs</button>
-            <button onclick="window.location.href='admin/reservations_info.html'">Réservations</button>
-            <button onclick="window.location.href='admin/payments_info.html'">Paiements</button>
+            <button onclick="window.location.href='admin/users_info.php'">Gestions des utilisateurs</button>
+            <button onclick="window.location.href='admin/reservations_info.php'">Réservations</button>
+            <button onclick="window.location.href='admin/payments_info.php'">Paiements</button>
         </div>
         <div class="Principal">
             
@@ -57,11 +60,11 @@
         
     </div>
     <div class="tail">
-        <a href="accueil.html">
-            <p>Accueil</p>
-        </a>
-        <p>| Destinations | Offres spéciales | Contact | À propos</p>
-    </div>
+    <a href="accueil.php">
+        <p>Accueil</p>
+    </a>
+    <p>| Destinations | Offres spéciales | Contact | À propos</p>
+</div>
 </body>
 </html>
 
