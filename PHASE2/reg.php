@@ -16,16 +16,16 @@ if (isset($_SESSION['email'])) {
 <body>
 
 <div class="head">
-    <a href="accueil.html">
+    <a href="accueil.php">
         <img src="VolcanFly.jpg" alt="Accueil">
     </a>
     <div class="headers">
         <ul>
-            <li><a href="accueil.html">Accueil</a></li>
+            <li><a href="accueil.php">Accueil</a></li>
             <li><a href="reg.php">Inscription</a></li>
             <li><a href="log.php">Connexion</a></li>
-            <li><a href="choice.html">Voyages</a></li>
-            <li><a href="aides.html">Aides</a></li>
+            <li><a href="choice.php">Voyages</a></li>
+            <li><a href="aides.php">Aides</a></li>
         </ul>
     </div>
 </div>
@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
             file_put_contents('users/' . $email . '.txt', $contenu);
 
             $_SESSION['email'] = $email;
-            header('Location: accueil.html');
+            header('Location: accueil.php');
             exit();
         }
     }
