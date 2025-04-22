@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+    header('Location: main.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,117 +14,102 @@
     <link rel="stylesheet" type="text/css" href="reglog.css">
 </head>
 <body>
-    
 
-    <div class="head">
-        <a href="accueil.html">
-            <img src="VolcanFly.jpg" alt="Accueil">
-        </a>
-        <div></div>
-        <div class="headers">
-            
-            <ul>
-                <li><a href="accueil.html">Accueil</a></li>
-                <li><a href="reg.html">Inscription</a></li>
-                <li><a href="log.html">Connexion</a></li>
-                <li><a href="choice.html">Voyages</a></li>
-                <li><a href="aides.html">Aides</a></li>
-                
-            </ul>
+<div class="head">
+    <a href="accueil.html">
+        <img src="VolcanFly.jpg" alt="Accueil">
+    </a>
+    <div class="headers">
+        <ul>
+            <li><a href="accueil.html">Accueil</a></li>
+            <li><a href="reg.php">Inscription</a></li>
+            <li><a href="log.php">Connexion</a></li>
+            <li><a href="choice.html">Voyages</a></li>
+            <li><a href="aides.html">Aides</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="Centre">
+    <div class="title">
+        <h1>Inscrivez-vous pour profiter du meilleur de VolcanFly</h1>
+    </div>
+
+    <div class="info">
+        <form action="reg.php" method="post">
+            <div class="input-group">
+                <label for="fname">Nom :</label>
+                <input type="text" id="fname" name="fname" required/>
+            </div>
+            <div class="input-group">
+                <label for="lname">Prénom :</label>
+                <input type="text" id="lname" name="lname" required/>
+            </div>
+            <div class="input-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required/>
+            </div>
+            <div class="input-group">
+                <label for="date">Date de naissance :</label>
+                <input type="date" id="date" name="date" required/>
+            </div>
+            <div class="input-group">
+                <label for="password1">Mot de passe :</label>
+                <input type="password" id="password1" name="password1" required/>
+            </div>
+            <div class="input-group">
+                <label for="password2">Confirmer votre mot de passe :</label>
+                <input type="password" id="password2" name="password2" required/>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" name="submit">Envoyer</button>
+            </div>
+        </form>
+
+        <div class="changep">
+            <p>Vous avez déjà un compte?</p><a href="log.php"><p>Connectez-vous</p></a>
         </div>
     </div>
-  
+</div>
 
-    <div class="Centre">
-        <div class="title">
-            <h1>Inscrivez-vous pour profiter du meilleur de VolcanFly</h1>
-        </div>
-
-        <div class="info">
-            <form action="" method="post">
-
-                <div class="input-group">
-                    <label for="fname">Nom :</label>
-                    <input type="text" id="fname" name="fname" />
-                </div>
-                <p></p>
-
-                <div class="input-group">
-                    <label for="lname">Prénom :</label>
-                    <input type="text" id="lname" name="lname" />
-                </div>
-                <p></p>
-
-                <div class="input-group">
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" />
-                </div>
-                <p></p>
-
-                <div class="input-group">
-                    <label for="date">Date de naissance :</label>
-                    <input type="date" id="date-day" name="date"/>
-                </div>
-                <p></p>
-                
-                <div class="input-group">
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" name="password1" size="20" maxlength="15" />
-                </div>
-                <p></p>
-
-
-                <div class="input-group">
-                    <label for="password">Confirmer votre mot de passe :</label>
-                    <input type="password" name="password" size="20" maxlength="15" />
-                </div>
-                <p></p>
-
-                <div class="button-group">
-                    <button type="submit">Envoyer</button><br>
-                </div>
-
-
-                <p></p>
-       
-            </form>
-            
-                            <div class="changep">
-                    <p>Vous avez déjà un compte?</p><pre> </pre><a href="log.php"><p>Connectez vous</p></a>
-                </div> 
-        </div>    
-    </div>
-
-    <div class="tail">
-        <a href="accueil.php">
-            <p>Accueil</p>
-        </a>
-        <p>| Destinations | Offres spéciales | Contact | À propos</p>
-    </div>
+<div class="tail">
+    <a href="accueil.php">
+        <p>Accueil</p>
+    </a>
+    <p>| Destinations | Offres spéciales | Contact | À propos</p>
+</div>
 
 </body>
 </html>
-<?php   
 
-                    $name = $_POST['lname'];
-                    $firstname = $_POST['fname'];
-                    $firstname = $_POST['email'];
-                    $date = $_POST['date'];
-                    $password1 = $_POST['password1'];
-                    $password = $_POST['password'];
-                    
-                    if (empty($name) || empty($firstname) || empty($date) || empty($where) ) {
-                    echo "<p> Merci de remplir tout les champs</p>";
-                    } else if ( $password1!=$password ) {
-                        echo "<p> mauvais mot de passe</p>";
-                        } 
+<?php
+if (isset($_POST['submit'])) {
+    $nom = htmlspecialchars($_POST['fname']);
+    $prenom = htmlspecialchars($_POST['lname']);
+    $email = htmlspecialchars($_POST['email']);
+    $date_naissance = htmlspecialchars($_POST['date']);
+    $motdepasse1 = $_POST['password1'];
+    $motdepasse2 = $_POST['password2'];
 
-                        else {
-                            
-                            
-                            
+    if ($motdepasse1 !== $motdepasse2) {
+        echo "<p style='color:red; text-align:center;'>Les mots de passe ne correspondent pas.</p>";
+    } else {
+        if (!file_exists('users')) {
+            mkdir('users');
+        }
 
+        if (file_exists('users/' . $email . '.txt')) {
+            echo "<p style='color:red; text-align:center;'>Cet email est déjà utilisé.</p>";
+        } else {
+            $motdepasse_hash = password_hash($motdepasse1, PASSWORD_DEFAULT);
+            $contenu = $nom . "\n" . $prenom . "\n" . $email . "\n" . $date_naissance . "\n" . $motdepasse_hash;
+            file_put_contents('users/' . $email . '.txt', $contenu);
 
-                    }
-
-                ?>
+            $_SESSION['email'] = $email;
+            header('Location: main.php');
+            exit();
+        }
+    }
+}
+?>
