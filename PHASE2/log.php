@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
 
         if (password_verify($motdepasse, $hash_enregistre)) {
             $_SESSION['email'] = $email;
-            header('Location: main.php');
+            header('Location: accueil.html');
             exit();
         } else {
             echo "<p style='color:red; text-align:center;'>Mot de passe incorrect.</p>";
