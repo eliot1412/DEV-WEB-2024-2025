@@ -14,21 +14,31 @@ if (!isset($_SESSION['email'])) {
 </head>
 <body>
     <div class="head">
-        <a href="../accueil.php">
-            <img src="../VolcanFly.jpg" alt="Accueil">
-        </a>
-        <div></div>
+
+        <ul>
+            <a href="accueil.php">
+                <img src="VolcanFly.jpg" alt="Accueil">
+            </a>
+
+        </ul>
         <div class="headers">
-            
+
             <ul>
-                <li><a href="../accueil.php">Accueil</a></li>
-                <li><a href="../reg.php">Inscription</a></li>
-                <li><a href="../log.php">Connexion</a></li>
-                <li><a href="../choice.php">Voyages</a></li>
-                <li><a href="../aides.php">Aides</a></li>
-                
+                <li><a href="accueil.php">Accueil</a></li>
+                <li><a href="reg.php">Inscription</a></li>
+                <li><a href="log.php">Connexion</a></li>
+                <li><a href="choice.php">Voyages</a></li>
+                <li><a href="aides.php">Aides</a></li>
+
             </ul>
+
+
+
         </div>
+
+        <a href="profile.php">
+            <img src="pp.jpg" alt="profile">
+            </a>
     </div>
     
     <div></div>
