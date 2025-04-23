@@ -38,111 +38,84 @@ if (empty($volcanoData)) {
 <head>
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="choice.css">
-    <style>
-        /* Styles spécifiques à la page de résultats */
+<style>
+    /* Modifications pour le conteneur des résultats */
+    .results-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 5 colonnes égales */
+        gap: 20px;
+        padding: 20px;
+        z-index: 2;
+        position: relative;
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    /* Ajustement des cartes de volcans */
+    .volcano-card {
+        background: rgba(109, 7, 26, 0.8);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+        color: white;
+        height: 100%; /* Uniformise la hauteur */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Contenu des cartes */
+    .volcano-info {
+        padding: 15px;
+        flex-grow: 1; /* Permet un alignement uniforme */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Styles existants conservés mais adaptés */
+    .volcano-image {
+        width: 100%;
+        height: 180px; /* Hauteur légèrement réduite */
+        object-fit: cover;
+    }
+    
+    .volcano-name {
+        font-size: 1.2rem; /* Taille réduite pour s'adapter */
+        margin-bottom: 8px;
+        color: rgba(229, 197, 39, 0.903);
+    }
+    
+    .volcano-description {
+        font-size: 0.9rem; /* Taille réduite */
+        margin-bottom: 15px;
+        flex-grow: 1; /* Pousse le bouton vers le bas */
+    }
+    
+    /* Adaptation pour les écrans plus petits */
+    @media (max-width: 1600px) {
         .results-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            z-index: 2;
-            position: relative;
+            grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur écrans moyens */
         }
-        
-        .volcano-card {
-            background: rgba(109, 7, 26, 0.8);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            color: white;
+    }
+    
+    @media (max-width: 1200px) {
+        .results-container {
+            grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur tablettes */
         }
-        
-        .volcano-card:hover {
-            transform: translateY(-5px);
+    }
+    
+    @media (max-width: 768px) {
+        .results-container {
+            grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobiles */
         }
-        
-        .volcano-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+    }
+    
+    @media (max-width: 480px) {
+        .results-container {
+            grid-template-columns: 1fr; /* 1 colonne sur petits mobiles */
         }
-        
-        .volcano-info {
-            padding: 15px;
-        }
-        
-        .volcano-name {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: rgba(229, 197, 39, 0.903);
-        }
-        
-        .volcano-location {
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-        
-        .volcano-rating {
-            color: gold;
-            margin-bottom: 10px;
-        }
-        
-        .volcano-price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        
-        .volcano-description {
-            margin-bottom: 15px;
-        }
-        
-        .filter-section {
-            background: rgba(109, 7, 26, 0.8);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px;
-            z-index: 2;
-            position: relative;
-        }
-        
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-btn {
-            background: #1a1a1a;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-        .filter-btn:hover {
-            background: #c40d3b;
-        }
-        
-        /* Animation pour l'apparition des cartes */
-        .volcano-card {
-            animation: fadeInUp 0.5s ease forwards;
-            opacity: 0;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    }
+</style>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -201,6 +174,6 @@ if (empty($volcanoData)) {
         <p>|S.A.V|...</p>
     </div>
     
+   
 </body>
 </html>
-
