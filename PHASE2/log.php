@@ -74,7 +74,7 @@ session_start();
 
 <?php
 if (isset($_POST['submit'])) {
-    $email = htmlspecialchars($_POST['email']);
+    $email = $_POST['email'];
     $motdepasse = $_POST['password'];
 
     if (file_exists('users/' . $email . '.txt')) {
