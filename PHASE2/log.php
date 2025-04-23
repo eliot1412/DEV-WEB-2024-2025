@@ -16,32 +16,21 @@ session_start();
 <body>
 
 <div class="head">
-
+    <ul>
+        <a href="accueil.php">
+            <img src="VolcanFly.jpg" alt="Accueil">
+        </a>
+    </ul>
+    <div class="headers">
         <ul>
-            <a href="accueil.php">
-                <img src="VolcanFly.jpg" alt="Accueil">
-            </a>
-
+            <li><a href="accueil.php">Accueil</a></li>
+            <li><a href="reg.php">Inscription</a></li>
+            <li><a href="log.php">Connexion</a></li>
+            <li><a href="choice.php">Voyages</a></li>
+            <li><a href="aides.php">Aides</a></li>
         </ul>
-        <div class="headers">
-
-            <ul>
-                <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="reg.php">Inscription</a></li>
-                <li><a href="log.php">Connexion</a></li>
-                <li><a href="choice.php">Voyages</a></li>
-                <li><a href="aides.php">Aides</a></li>
-
-            </ul>
-
-
-
-        </div>
-
-        <a href="profile.php">
-            <img src="pp.jpg" alt="profile">
-            </a>
     </div>
+</div>
 
 <div class="Centre">
 <div class="title">
@@ -68,7 +57,44 @@ session_start();
             <p>Vous n'avez pas de compte?</p><a href="reg.php"><p>Inscrivez-vous</p></a>
         </div>
     </form>
+    <?php
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $motdepasse = $_POST['password'];
+
+    $fichier = 'utilisateurs.json';
+    if (!file_exists($fichier)) {
+        echo "<p style='color:red; text-align:center;'>Aucun utilisateur enregistré.</p>";
+        exit();
+    }
+
+    $utilisateurs = json_decode(file_get_contents($fichier), true);
+    $email_trouve = false;
+
+    foreach ($utilisateurs as $u) {
+        if ($u['email'] === $email) {
+            $email_trouve = true;
+            if ($u['password'] === $motdepasse) {
+                $_SESSION['email'] = $email;
+                header('Location: accueil.php');
+                exit();
+            } else {
+                echo "<p style='color:red; text-align:center;'>Mot de passe incorrect.</p>";
+                
+            }
+        }
+    }
+
+    if (!$email_trouve) {
+        echo "<p style='color:red; text-align:center;'>Email introuvable.</p>";
+    }
+}
+?>
 </div>
+
+
+
+
 
 <div class="tail">
     <a href="accueil.php">
@@ -79,26 +105,3 @@ session_start();
 
 </body>
 </html>
-
-<?php
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $motdepasse = $_POST['password'];
-
-    if (file_exists('users/' . $email . '.txt')) {
-        $infos = file('users/' . $email . '.txt');
-        $mdp_reg = trim($infos[4]);
-
-        if ($motdepasse === $mdp_reg ) {
-            $_SESSION['email'] = $email;
-            header('Location: accueil.php');
-            exit();
-        } else {
-            echo "<p style='color:red; text-align:center;'>Mot de passe incorrect.</p>";
-        }
-    } else {
-        echo "<p style='color:red; text-align:center;'>Email introuvable.</p>";
-    }
-}
-?>
-
