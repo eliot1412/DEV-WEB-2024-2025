@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Expédition de l'Etna",
+        "location": "Sicile, Italie",
+        "image": "photo/etna.jpg",
+        "rating": 5,
+        "price": "€450",
+        "description": "Découvrez l'Etna, le plus haut volcan actif d'Europe, avec des guides experts en vulcanologie.",
+        "region": "europe"
+    },
+    {
+        "name": "Aventure au Piton de la Fournaise",
+        "location": "La Réunion, France",
+        "image": "photo/piton.jpg",
+        "rating": 4,
+        "price": "€600",
+        "description": "Randonnée vers l'un des volcans les plus actifs au monde, situé sur une île tropicale.",
+        "region": "oceanie"
+    },
+    {
+        "name": "Ascension du Kilimandjaro",
+        "location": "Tanzanie",
+        "image": "photo/kilimandjaro.jpg",
+        "rating": 5,
+        "price": "€1200",
+        "description": "Gravissez ce volcan endormi, point culminant de l'Afrique, pour une expérience inoubliable.",
+        "region": "afrique"
+    },
+    {
+        "name": "Exploration du Yellowstone",
+        "location": "Wyoming, États-Unis",
+        "image": "photo/yellowstone.jpg",
+        "rating": 4,
+        "price": "€800",
+        "description": "Découvrez le supervolcan de Yellowstone et ses phénomènes géothermiques uniques.",
+        "region": "amerique"
+    },
+    {
+        "name": "Visite du Mont Fuji",
+        "location": "Japon",
+        "image": "photo/fuji.jpg",
+        "rating": 5,
+        "price": "€950",
+        "description": "L'emblématique volcan du Japon, une ascension spirituelle et physique.",
+        "region": "asie"
+    },
+    {
+        "name": "Randonnée du Stromboli",
+        "location": "Îles Éoliennes, Italie",
+        "image": "photo/stromboli.jpg",
+        "rating": 5,
+        "price": "€550",
+        "description": "Observez le \"phare de la Méditerranée\" et ses éruptions quasi continues.",
+        "region": "europe"
+    }
+]
