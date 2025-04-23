@@ -1,9 +1,10 @@
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
-    header('Location: accueil.php');
+    //header('Location: accueil.php');
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,21 +17,25 @@ if (isset($_SESSION['email'])) {
 <body>
 
 <div class="head">
-    <ul>
-        <a href="accueil.php">
-            <img src="VolcanFly.jpg" alt="Accueil">
-        </a>
-    </ul>
-    <div class="headers">
+        
         <ul>
-            <li><a href="accueil.php">Accueil</a></li>
-            <li><a href="reg.php">Inscription</a></li>
-            <li><a href="log.php">Connexion</a></li>
-            <li><a href="choice.php">Voyages</a></li>
-            <li><a href="aides.php">Aides</a></li>
+            <a href="accueil.php">
+                <img src="VolcanFly.jpg" alt="Accueil">
+            </a>
+            
         </ul>
+        <div class="headers">
+            
+            <ul>
+                <li><a href="accueil.php">Accueil</a></li>
+                <li><a href="reg.php">Inscription</a></li>
+                <li><a href="log.php">Connexion</a></li>
+                <li><a href="choice.php">Voyages</a></li>
+                <li><a href="aides.php">Aides</a></li>
+                
+            </ul>
+        </div>
     </div>
-</div>
 
 <div class="title">
     <h1>Connectez-vous pour profiter pleinement de VolcanFly</h1>
@@ -70,7 +75,7 @@ if (isset($_SESSION['email'])) {
 
 <?php
 if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
+    $email = htmlspecialchars($_POST['email']);
     $motdepasse = $_POST['password'];
 
     if (file_exists('users/' . $email . '.txt')) {

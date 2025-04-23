@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
-    header('Location: accueil.php');
+    //header('Location: accueil.php');
     exit();
 }
 ?>
@@ -16,21 +16,25 @@ if (isset($_SESSION['email'])) {
 <body>
 
 <div class="head">
-    <ul>
-        <a href="accueil.php">
-            <img src="VolcanFly.jpg" alt="Accueil">
-        </a>
-    </ul>
-    <div class="headers">
+        
         <ul>
-            <li><a href="accueil.php">Accueil</a></li>
-            <li><a href="reg.php">Inscription</a></li>
-            <li><a href="log.php">Connexion</a></li>
-            <li><a href="choice.php">Voyages</a></li>
-            <li><a href="aides.php">Aides</a></li>
+            <a href="accueil.php">
+                <img src="VolcanFly.jpg" alt="Accueil">
+            </a>
+            
         </ul>
+        <div class="headers">
+            
+            <ul>
+                <li><a href="accueil.php">Accueil</a></li>
+                <li><a href="reg.php">Inscription</a></li>
+                <li><a href="log.php">Connexion</a></li>
+                <li><a href="choice.php">Voyages</a></li>
+                <li><a href="aides.php">Aides</a></li>
+                
+            </ul>
+        </div>
     </div>
-</div>
 
 <div class="Centre">
     <div class="title">
@@ -87,10 +91,10 @@ if (isset($_SESSION['email'])) {
 
 <?php
 if (isset($_POST['submit'])) {
-    $nom = $_POST['fname'];
-    $prenom = $_POST['lname'];
-    $email = $_POST['email'];
-    $date_naissance = $_POST['date'];
+    $nom = htmlspecialchars($_POST['fname']);
+    $prenom = htmlspecialchars($_POST['lname']);
+    $email = htmlspecialchars($_POST['email']);
+    $date_naissance = htmlspecialchars($_POST['date']);
     $motdepasse1 = $_POST['password1'];
     $motdepasse2 = $_POST['password2'];
 
@@ -104,8 +108,7 @@ if (isset($_POST['submit'])) {
         if (file_exists('users/' . $email . '.txt')) {
             echo "<p style='color:red; text-align:center;'>Cet email est déjà utilisé.</p>";
         } else {
-            $motdepasse_hash = password_hash($motdepasse1, PASSWORD_DEFAULT);
-            $contenu = $nom . "\n" . $prenom . "\n" . $email . "\n" . $date_naissance . "\n" . $motdepasse_hash;
+            $contenu = $nom . "\n" . $prenom . "\n" . $email . "\n" . $date_naissance . "\n" . $motdepasse1;
             file_put_contents('users/' . $email . '.txt', $contenu);
 
             $_SESSION['email'] = $email;
@@ -115,4 +118,3 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-``
