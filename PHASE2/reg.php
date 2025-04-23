@@ -16,32 +16,22 @@ session_start();
 <body>
 
 <div class="head">
-
+    <ul>
+        <a href="accueil.php">
+            <img src="VolcanFly.jpg" alt="Accueil">
+        </a>
+    </ul>
+    <div class="headers">
         <ul>
-            <a href="accueil.php">
-                <img src="VolcanFly.jpg" alt="Accueil">
-            </a>
-
+            <li><a href="accueil.php">Accueil</a></li>
+            <li><a href="reg.php">Inscription</a></li>
+            <li><a href="log.php">Connexion</a></li>
+            <li><a href="choice.php">Voyages</a></li>
+            <li><a href="aides.php">Aides</a></li>
         </ul>
-        <div class="headers">
-
-            <ul>
-                <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="reg.php">Inscription</a></li>
-                <li><a href="log.php">Connexion</a></li>
-                <li><a href="choice.php">Voyages</a></li>
-                <li><a href="aides.php">Aides</a></li>
-
-            </ul>
-
-
-
-        </div>
-
-        <a href="profile.php">
-            <img src="pp.jpg" alt="profile">
-            </a>
     </div>
+</div>
+
 <div class="Centre">
     <div class="title">
         <h1>Inscrivez-vous pour profiter du meilleur de VolcanFly</h1>
@@ -77,25 +67,13 @@ session_start();
             <div class="button-group">
                 <button type="submit" name="submit">Envoyer</button>
             </div>
+        
+
+            <div class="changep">
+                <p>Vous avez déjà un compte?</p><a href="log.php"><p>Connectez-vous</p></a>
+            </div>
         </form>
-
-        <div class="changep">
-            <p>Vous avez déjà un compte?</p><a href="log.php"><p>Connectez-vous</p></a>
-        </div>
-    </div>
-</div>
-
-<div class="tail">
-    <a href="accueil.php">
-        <p>Accueil</p>
-    </a>
-    <p>| Destinations | Offres spéciales | Contact | À propos</p>
-</div>
-
-</body>
-</html>
-
-<?php
+        <?php
 if (isset($_POST['submit'])) {
     $nom = $_POST['fname'];
     $prenom = $_POST['lname'];
@@ -107,20 +85,49 @@ if (isset($_POST['submit'])) {
     if ($motdepasse1 !== $motdepasse2) {
         echo "<p style='color:red; text-align:center;'>Les mots de passe ne correspondent pas.</p>";
     } else {
-        if (!file_exists('users')) {
-            mkdir('users');
+
+        $fichier_utilisateurs = 'utilisateurs.json';
+        $utilisateurs = file_exists($fichier_utilisateurs) ? json_decode(file_get_contents($fichier_utilisateurs), true) : [];
+
+        
+        foreach ($utilisateurs as $u) {
+            if ($u['email'] === $email) {
+                echo "<p style='color:red; text-align:center;'>Cet email est déjà utilisé.</p>";
+                exit();
+            }
         }
 
-        if (file_exists('users/' . $email . '.txt')) {
-            echo "<p style='color:red; text-align:center;'>Cet email est déjà utilisé.</p>";
-        } else {
-            $contenu = $nom . "\n" . $prenom . "\n" . $email . "\n" . $date_naissance . "\n" . $motdepasse1;
-            file_put_contents('users/' . $email . '.txt', $contenu);
+        $nouvel_utilisateur = array(
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'email' => $email,
+            'date_naissance' => $date_naissance,
+            'password' => $motdepasse1 
+        );
 
-            $_SESSION['email'] = $email;
-            header('Location: accueil.php');
-            exit();
-        }
+        $utilisateurs[] = $nouvel_utilisateur;
+
+        file_put_contents($fichier_utilisateurs, json_encode($utilisateurs, JSON_PRETTY_PRINT));
+
+        $_SESSION['email'] = $email;
+        header('Location: accueil.php');
+        exit();
     }
 }
 ?>
+
+    </div>
+</div>
+
+
+
+
+<div class="tail">
+    <a href="accueil.php">
+        <p>Accueil</p>
+    </a>
+    <p>| Destinations | Offres spéciales | Contact | À propos</p>
+</div>
+
+</body>
+</html>
