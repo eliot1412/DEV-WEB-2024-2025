@@ -23,6 +23,9 @@
                 
             </ul>
         </div>
+    <a href="../profile.php">
+            <img src="../pp.jpg" alt="profile">
+            </a>
     </div>
     
     <div></div>
