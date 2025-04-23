@@ -52,5 +52,86 @@
         "price": "€550",
         "description": "Observez le \"phare de la Méditerranée\" et ses éruptions quasi continues.",
         "region": "europe"
+    },
+    {
+        "name": "Excursion au Vésuve",
+        "location": "Naples, Italie",
+        "image": "photo/vesuve.jpg",
+        "rating": 4,
+        "price": "€350",
+        "description": "Découvrez le célèbre volcan qui a enseveli Pompéi, avec vue sur la baie de Naples.",
+        "region": "europe"
+    },
+    {
+        "name": "Aventure au Volcan Arenal",
+        "location": "Costa Rica",
+        "image": "photo/arenal.jpg",
+        "rating": 4,
+        "price": "€700",
+        "description": "Randonnée autour de ce volcan parfaitement conique et baignade dans ses sources chaudes.",
+        "region": "amerique"
+    },
+    {
+        "name": "Expedition au Kilauea",
+        "location": "Hawaï, États-Unis",
+        "image": "photo/kilauea.jpg",
+        "rating": 5,
+        "price": "€1100",
+        "description": "Observez la lave en fusion de l'un des volcans les plus actifs de la planète.",
+        "region": "oceanie"
+    },
+    {
+        "name": "Ascension du Cotopaxi",
+        "location": "Équateur",
+        "image": "photo/cotopaxi.jpg",
+        "rating": 5,
+        "price": "€850",
+        "description": "Gravissez ce volcan andin couvert de glaciers pour une expérience alpine unique.",
+        "region": "amerique"
+    },
+    {
+        "name": "Exploration des Volcans d'Auvergne",
+        "location": "France",
+        "image": "photo/auvergne.jpg",
+        "rating": 3,
+        "price": "€250",
+        "description": "Découverte des volcans endormis de la chaîne des Puys, classée à l'UNESCO.",
+        "region": "europe"
+    },
+    {
+        "name": "Safari au Ngorongoro",
+        "location": "Tanzanie",
+        "image": "photo/ngorongoro.jpg",
+        "rating": 4,
+        "price": "€1300",
+        "description": "Combinaison unique de safari et de volcan dans cette caldeira géante peuplée d'animaux sauvages.",
+        "region": "afrique"
+    },
+    {
+        "name": "Randonnée au Teide",
+        "location": "Tenerife, Espagne",
+        "image": "photo/teide.jpg",
+        "rating": 4,
+        "price": "€500",
+        "description": "Ascension du point culminant de l'Espagne, volcan aux paysages lunaires.",
+        "region": "europe"
+    },
+    {
+        "name": "Croisière aux Volcans du Kamtchatka",
+        "location": "Russie",
+        "image": "photo/kamtchatka.jpg",
+        "rating": 5,
+        "price": "€1800",
+        "description": "Expédition maritime vers ces volcans isolés et sauvages de l'Extrême-Orient russe.",
+        "region": "asie"
+    },
+    {
+        "name": "Trek au Villarrica",
+        "location": "Chili",
+        "image": "photo/villarrica.jpg",
+        "rating": 4,
+        "price": "€750",
+        "description": "Ascension d'un volcan actif avec lac de lave visible, culminant à 2847 mètres.",
+        "region": "amerique"
     }
 ]
