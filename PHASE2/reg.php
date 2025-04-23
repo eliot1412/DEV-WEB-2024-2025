@@ -91,10 +91,10 @@ session_start();
 
 <?php
 if (isset($_POST['submit'])) {
-    $nom = htmlspecialchars($_POST['fname']);
-    $prenom = htmlspecialchars($_POST['lname']);
-    $email = htmlspecialchars($_POST['email']);
-    $date_naissance = htmlspecialchars($_POST['date']);
+    $nom = $_POST['fname'];
+    $prenom = $_POST['lname'];
+    $email = $_POST['email'];
+    $date_naissance = $_POST['date'];
     $motdepasse1 = $_POST['password1'];
     $motdepasse2 = $_POST['password2'];
 
