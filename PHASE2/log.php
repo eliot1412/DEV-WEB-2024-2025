@@ -36,6 +36,7 @@ session_start();
         </div>
     </div>
 
+<div class="Centre">
 <div class="title">
     <h1>Connectez-vous pour profiter pleinement de VolcanFly</h1>
 </div>
