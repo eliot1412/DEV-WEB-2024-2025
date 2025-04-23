@@ -201,31 +201,6 @@ if (empty($volcanoData)) {
         <p>|S.A.V|...</p>
     </div>
     
-    <script>
-        // Filtrage des résultats
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
-                const cards = document.querySelectorAll('.volcano-card');
-                
-                cards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-region') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Animation au chargement
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.volcano-card');
-            cards.forEach(card => {
-                card.style.opacity = '1';
-            });
-        });
-    </script>
 </body>
 </html>
 
