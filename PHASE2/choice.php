@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
-<title>Recherche de Voyages</title>
+<title>Recherche de Voyages Volcaniques</title>
 <head>
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="choice.css">
     <meta charset="UTF-8">
 </head>
 <body>
-<div class="head">
-        
-        <ul>
-            <a href="accueil.php">
-                <img src="VolcanFly.jpg" alt="Accueil">
-            </a>
-            
-        </ul>
+    <div class="head">
+        <a href="accueil.html">
+            <img src="VolcanFly.jpg" alt="Accueil">
+        </a>
         <div class="headers">
-            
             <ul>
-                <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="reg.php">Inscription</a></li>
-                <li><a href="log.php">Connexion</a></li>
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="reg.html">Inscription</a></li>
+                <li><a href="log.html">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
-                <li><a href="aides.php">Aides</a></li>
-                
+                <li><a href="aides.html">Aides</a></li>
             </ul>
         </div>
     </div>
     
     <div class="contenu">
         <h1>Rechercher un Voyage</h1>
-        <form class="Destination">
-            
+        <form action="results.php" method="GET" class="Destination">
             <div class="Destiné">
                 <label for="destination">Destination :</label>
                 <input type="text" id="destination" name="destination" placeholder="Entrez une destination">
-
             </div>
 
-          
             <div class="departure">
                 <label for="departure-date">Date de départ :</label>
                 <input type="date" id="departure-date" name="departure-date">
@@ -49,34 +40,31 @@
                 <input type="date" id="return-date" name="return-date">
             </div>
 
-            
             <div class="return">
                 <label>Options :</label>
                 <div class="options">
                     <label>
-                        <input type="checkbox" name="options" value="hotel"> Hôtel
+                        <input type="checkbox" name="options[]" value="hotel"> Hôtel
                     </label>
                     <label>
-                        <input type="checkbox" name="options" value="flight"> Vol
+                        <input type="checkbox" name="options[]" value="flight"> Vol
                     </label>
                     <label>
-                        <input type="checkbox" name="options" value="car"> Location de voiture
+                        <input type="checkbox" name="options[]" value="car"> Location de voiture
                     </label>
                 </div>
             </div>
 
-            
             <div class="research">
                 <button type="submit">Rechercher</button>
             </div>
         </form>
     </div>
-    <div class="tail">
-    <a href="accueil.php">
-        <p>Accueil</p>
-    </a>
-    <p>| Destinations | Offres spéciales | Contact | À propos</p>
-</div>
-            
+    <div class="tail">&
+        <a href="accueil.html">
+            <p>Acceuil</p>
+        </a>
+        <p>|S.A.V|...</p>
+    </div>
 </body>
 </html>
