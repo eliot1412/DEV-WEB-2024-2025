@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['email'])) {
-    header('Location: main.php');
+    header('Location: accueil.php');
     exit();
 }
 ?>
@@ -16,25 +16,21 @@ if (isset($_SESSION['email'])) {
 <body>
 
 <div class="head">
-        
+    <ul>
+        <a href="accueil.php">
+            <img src="VolcanFly.jpg" alt="Accueil">
+        </a>
+    </ul>
+    <div class="headers">
         <ul>
-            <a href="accueil.php">
-                <img src="VolcanFly.jpg" alt="Accueil">
-            </a>
-            
+            <li><a href="accueil.php">Accueil</a></li>
+            <li><a href="reg.php">Inscription</a></li>
+            <li><a href="log.php">Connexion</a></li>
+            <li><a href="choice.php">Voyages</a></li>
+            <li><a href="aides.php">Aides</a></li>
         </ul>
-        <div class="headers">
-            
-            <ul>
-                <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="reg.php">Inscription</a></li>
-                <li><a href="log.php">Connexion</a></li>
-                <li><a href="choice.php">Voyages</a></li>
-                <li><a href="aides.php">Aides</a></li>
-                
-            </ul>
-        </div>
     </div>
+</div>
 
 <div class="Centre">
     <div class="title">
@@ -91,10 +87,10 @@ if (isset($_SESSION['email'])) {
 
 <?php
 if (isset($_POST['submit'])) {
-    $nom = htmlspecialchars($_POST['fname']);
-    $prenom = htmlspecialchars($_POST['lname']);
-    $email = htmlspecialchars($_POST['email']);
-    $date_naissance = htmlspecialchars($_POST['date']);
+    $nom = $_POST['fname'];
+    $prenom = $_POST['lname'];
+    $email = $_POST['email'];
+    $date_naissance = $_POST['date'];
     $motdepasse1 = $_POST['password1'];
     $motdepasse2 = $_POST['password2'];
 
@@ -119,3 +115,4 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+``
