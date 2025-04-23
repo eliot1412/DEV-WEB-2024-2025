@@ -74,7 +74,7 @@
         </form>
     </div>
     <div class="tail">&
-        <a href="accueil.html">
+        <a href="accueil.php">
             <p>Acceuil</p>
         </a>
         <p>|S.A.V|...</p>
