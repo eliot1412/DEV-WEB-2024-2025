@@ -79,9 +79,9 @@ if (isset($_POST['submit'])) {
 
     if (file_exists('users/' . $email . '.txt')) {
         $infos = file('users/' . $email . '.txt');
-        $hash_enregistre = trim($infos[4]);
+        $mdp_reg = trim($infos[4]);
 
-        if (password_verify($motdepasse, $hash_enregistre)) {
+        if ($motdepasse === $mdp_reg ) {
             $_SESSION['email'] = $email;
             header('Location: accueil.php');
             exit();
@@ -93,3 +93,4 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
