@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
-if (!isset($_SESSION['email'])) {
+/*if (!isset($_SESSION['email'])) {
     header('Location: accueil.php');
     exit();    
-    }
+    }*/
 ?>
 <html lang="fr">
 <head>
