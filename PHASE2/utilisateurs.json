@@ -6,6 +6,7 @@
         "email": "eliot@email.com",
         "date_naissance": "2004-05-11",
         "password": "123"
+        "admin": "0"
     },
     {
         "nom": "Own",
@@ -13,6 +14,7 @@
         "email": "jude@email.com",
         "date_naissance": "2005-04-30",
         "password": "456"
+        "admin": "0"
     },
     {
         "nom": "Jey",
@@ -20,6 +22,7 @@
         "email": "habilan@email.com",
         "date_naissance": "2005-02-07",
         "password": "789"
+        "admin": "0"
     },
     {
         "nom": "admin1",
@@ -27,6 +30,7 @@
         "email": "admin1@email.com",
         "date_naissance": "2000-01-01",
         "password": "000"
+        "admin": "1"
     },
     {
         "nom": "admin2",
@@ -34,5 +38,6 @@
         "email": "admin2@email.com",
         "date_naissance": "2000-01-01",
         "password": "000"
+        "admin": "1"
     }
 ]
