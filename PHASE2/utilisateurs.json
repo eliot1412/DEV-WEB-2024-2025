@@ -20,5 +20,19 @@
         "email": "habilan@email.com",
         "date_naissance": "2005-02-07",
         "password": "789"
+    },
+    {
+        "nom": "admin1",
+        "prenom": "ad",
+        "email": "admin1@email.com",
+        "date_naissance": "2000-01-01",
+        "password": "000"
+    },
+    {
+        "nom": "admin2",
+        "prenom": "admi",
+        "email": "admin2@email.com",
+        "date_naissance": "2000-01-01",
+        "password": "000"
     }
 ]
