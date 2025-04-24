@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+?>
 <html lang="fr">
 <head>
     <title>Page de profile</title>
@@ -53,7 +56,7 @@
                     <div class="profile">
                         
                         
-                            <div class="pp"><img src="pp.jpg" alt="Photo de profile"></div><h1><b>Nom Prénom</b></h1>
+                            <div class="pp"><img src="pp.jpg" alt="Photo de profile"></div><h1><b><?php print($_SESSION['email']) ?> Prénom</b></h1>
                             
                         
                     </div>
