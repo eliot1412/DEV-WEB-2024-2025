@@ -5,6 +5,29 @@ if (!isset($_SESSION['email'])) {
     header('Location: accueil.php');
     exit();
 }
+$fichier = 'utilisateurs.json';
+    if (!file_exists($fichier)) {
+        echo "<p style='color:red; text-align:center;'>Aucun utilisateur enregistré.</p>";
+        exit();
+    }
+
+    $utilisateurs = json_decode(file_get_contents($fichier), true);
+    $email_trouve = false;
+    foreach ($utilisateurs as $u) {
+        if ($u['email'] === $_SESSION['email']) {
+            $email_trouve = true;
+            $nom = $u['nom'];
+            $prenom = $u['prenom'];
+            $email = $u['email'];
+            $date_naissance = $u['date_naissance'];
+            $password = $u['password'];
+        }
+    }
+
+    if (!$email_trouve) {
+        echo "<p style='color:red; text-align:center;'>Email introuvable.</p>";
+    }
+
 ?>
 <html lang="fr">
 <head>
@@ -52,6 +75,7 @@ if (!isset($_SESSION['email'])) {
             
             
                 <div class="Principal">
+                <form action="log.php" method="post">
                     <div class="change">
                         <button>
                             <img src="pencil.jpg" alt="Modifier">
@@ -60,7 +84,7 @@ if (!isset($_SESSION['email'])) {
                     <div class="profile">
                         
                         
-                            <div class="pp"><img src="pp.jpg" alt="Photo de profile"></div><h1><b><?php print($_SESSION['email']) ?> Prénom</b></h1>
+                            <div class="pp"><img src="pp.jpg" alt="Photo de profile"></div><h1><b><?php print($nom .' '. $prenom) ?></b></h1>
                             
                         
                     </div>
@@ -69,8 +93,9 @@ if (!isset($_SESSION['email'])) {
                         <ul>
                             <h1>Données personnelles :</h1>
                             <p>Sexe : Femme/Homme/Autre</p>
-                            <p>Date de naissance : 00/00/0000</p>
-                            <p>...</p>
+                            <p>Date de naissance : <?php print($date_naissance) ?></p>
+                            <p>Adresse email : <?php print($email) ?></p>
+                            <p>Mot de passe : <?php echo str_repeat('*', strlen($password)); ?></p>
                             
                         </ul>
                     </div>
@@ -79,18 +104,13 @@ if (!isset($_SESSION['email'])) {
                         <ul>
                             <h1>Information de paiement :</h1>
                             <p>Adresse de facturation : XX/rue XX/Ville :XX/Pays:XX</p>
+                            <p>Adresse de facturation : <input type="number" name="number" autocomplete="n° de rue"> <input type="text" name="street" autocomplete="nom de rue"> <input type="text" name="city" autocomplete="Ville">  <input type="number" name="postal code" autocomplete="Code postal"> </p> </p> <input type="text" name="country" autocomplete="Pays"> </p>
                             <p>Carte banquaire enregistrée : num:*******00/aucune</p>
+                            <p>Carte banquaire enregistrée : <input type="password" value=></p>
                         </ul>
                     </div>
 
-                    <div class="Scolarité">
-                        <ul>
-                            <h1>Catégorie :</h1>
-                            <p>...</p>
-                            <p>...</p>
-                                
-                        </ul>
-                    </div>
+                    </form>
                 </div>
             
         
