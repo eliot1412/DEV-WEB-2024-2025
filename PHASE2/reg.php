@@ -104,7 +104,7 @@ if (isset($_POST['submit'])) {
             'prenom' => $prenom,
             'email' => $email,
             'date_naissance' => $date_naissance,
-            'password' => $motdepasse1 
+            'password' => $motdepasse1,
             'admin' => "0"
         );
 
