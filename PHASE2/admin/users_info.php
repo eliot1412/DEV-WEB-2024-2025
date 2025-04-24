@@ -1,4 +1,33 @@
 <!DOCTYPE html>
+<?php
+session_start();
+/*if (!isset($_SESSION['email'])) {
+    header('Location: ../accueil.php');
+    exit();    
+    }*/
+    $fichier = '../utilisateurs.json';
+    if (!file_exists($fichier)) {
+        echo "<p style='color:red; text-align:center;'>Erreur.</p>";
+        exit();
+    }
+
+    $utilisateurs = json_decode(file_get_contents($fichier), true);
+
+    foreach ($utilisateurs as $u) {
+        if ($u['email'] === $_SESSION['email']) {
+            $email_trouve = true;
+            if($u['admin'] == 0) {
+                header('Location: ../accueil.php');
+                exit();
+            } else {
+                $isadmin = true;
+                
+            }
+        }
+    }
+
+
+?>
 <html lang="fr">
 <head>
     <title>Gestions utilisateurs</title>
