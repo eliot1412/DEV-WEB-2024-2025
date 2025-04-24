@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
 session_start();
-/*if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['email'])) {
     header('Location: accueil.php');
     exit();    
-    }*/
+    }
     $fichier = 'utilisateurs.json';
     if (!file_exists($fichier)) {
         echo "<p style='color:red; text-align:center;'>Erreur.</p>";
