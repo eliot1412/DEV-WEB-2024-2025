@@ -111,6 +111,12 @@ $fichier = 'utilisateurs.json';
                     </div>
 
                     </form>
+                    <!-- Bouton Déconnexion -->
+                    <div class="logout-btn-container">
+                        <a href="logout.php" class="logout-btn">
+                            Se déconnecter
+                        </a>
+                    </div>
                 </div>
             
         
