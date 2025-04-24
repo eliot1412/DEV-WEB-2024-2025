@@ -124,3 +124,16 @@
     
     border-radius: 10px;      
 }
+
+.logout-btn-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
