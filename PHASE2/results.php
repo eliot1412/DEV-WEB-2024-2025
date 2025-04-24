@@ -173,7 +173,7 @@ if (empty($volcanoData)) {
                         <div class="volcano-rating"><?= str_repeat('★', (int)($volcano['rating'] ?? 0)) ?></div>
                         <p class="volcano-price">À partir de <?= htmlspecialchars($volcano['price'] ?? '') ?></p>
                         <p class="volcano-description"><?= htmlspecialchars($volcano['description'] ?? '') ?></p>
-                        <a href="#" class="aides a">Voir détails</a>
+                        <a href="details.php?id=<?= $index ?>" class="aides a">Voir détails</a>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -181,7 +181,7 @@ if (empty($volcanoData)) {
     </div>
     
     <div class="tail">
-        <a href="accueil.html">
+        <a href="accueil.php">
             <p>Acceuil</p>
         </a>
         <p>|S.A.V|...</p>
