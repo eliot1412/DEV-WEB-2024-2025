@@ -105,6 +105,7 @@ if (isset($_POST['submit'])) {
             'email' => $email,
             'date_naissance' => $date_naissance,
             'password' => $motdepasse1 
+            'admin' => "0"
         );
 
         $utilisateurs[] = $nouvel_utilisateur;
