@@ -16,32 +16,21 @@ session_start();
 <body>
 
 <div class="head">
-
+    <ul>
+        <a href="accueil.php">
+            <img src="VolcanFly.jpg" alt="Accueil">
+        </a>
+    </ul>
+    <div class="headers">
         <ul>
-            <a href="accueil.php">
-                <img src="VolcanFly.jpg" alt="Accueil">
-            </a>
-
+            <li><a href="accueil.php">Accueil</a></li>
+            <li><a href="reg.php">Inscription</a></li>
+            <li><a href="log.php">Connexion</a></li>
+            <li><a href="choice.php">Voyages</a></li>
+            <li><a href="aides.php">Aides</a></li>
         </ul>
-        <div class="headers">
-
-            <ul>
-                <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="reg.php">Inscription</a></li>
-                <li><a href="log.php">Connexion</a></li>
-                <li><a href="choice.php">Voyages</a></li>
-                <li><a href="aides.php">Aides</a></li>
-
-            </ul>
-
-
-
-        </div>
-
-        <a href="profile.php">
-            <img src="pp.jpg" alt="profile">
-            </a>
     </div>
+</div>
 
 <div class="Centre">
     <div class="title">
@@ -100,15 +89,17 @@ if (isset($_POST['submit'])) {
         $fichier_utilisateurs = 'utilisateurs.json';
         $utilisateurs = file_exists($fichier_utilisateurs) ? json_decode(file_get_contents($fichier_utilisateurs), true) : [];
 
-        
+        $emailExiste = false;
         foreach ($utilisateurs as $u) {
             if ($u['email'] === $email) {
                 echo "<p style='color:red; text-align:center;'>Cet email est déjà utilisé.</p>";
-                exit();
+                $emailExiste = true;
             }
-        }
+            break;
+        }   
 
-        $nouvel_utilisateur = array(
+        if(!$emailExiste){
+            $nouvel_utilisateur = array(
             'nom' => $nom,
             'prenom' => $prenom,
             'email' => $email,
@@ -123,6 +114,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['email'] = $email;
         header('Location: accueil.php');
         exit();
+        }
+        
     }
 }
 ?>
