@@ -1,19 +1,10 @@
 <?php
-// Récupère l’ID du volcan depuis l’URL
-$id = isset($_GET['id']) ? (int)$_GET['id'] : -1;
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$volcanoes = json_decode(file_get_contents('volcanoes.json'), true);
+$volcano = $volcanoes[$id] ?? null;
 
-// Charge les données JSON
-$jsonFile = __DIR__ . '/volcanoes.json';
-$volcanoData = [];
-
-if (file_exists($jsonFile)) {
-    $jsonContent = file_get_contents($jsonFile);
-    $volcanoData = json_decode($jsonContent, true);
-}
-
-$volcano = $volcanoData[$id] ?? null;
 if (!$volcano) {
-    die("Volcan non trouvé !");
+    die("Volcan non trouvé.");
 }
 ?>
 
@@ -22,84 +13,96 @@ if (!$volcano) {
 <head>
     <meta charset="UTF-8">
     <title>Détails - <?= htmlspecialchars($volcano['name']) ?></title>
-    <link rel="stylesheet" type="text/css" href="head.css">
+    <link rel="stylesheet" href="head.css">
+    <link rel="stylesheet" href="choice.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #2b1a1a;
+            background: #1b1b1b;
             color: white;
-            padding: 40px;
+            font-family: Arial, sans-serif;
         }
-        .volcano-details {
+
+        .details-container {
             max-width: 1000px;
-            margin: auto;
-            background: rgba(109, 7, 26, 0.9);
-            border-radius: 15px;
-            overflow: hidden;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            margin: 40px auto;
+            background: rgba(109, 7, 26, 0.8);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
         }
-        .volcano-details img {
+
+        .details-container img {
             width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        h1 {
-            color: #e5c527;
-        }
-        .options {
-            margin-top: 25px;
-        }
-        .option-block {
-            background-color: rgba(255,255,255,0.05);
-            padding: 15px;
             border-radius: 10px;
             margin-bottom: 20px;
+            max-height: 300px;
+            object-fit: cover;
         }
-        .option-block h3 {
-            color: #ffcc00;
+
+        h2 {
+            color: rgba(229, 197, 39, 0.903);
         }
-        a.back {
-            color: #ffcc00;
-            text-decoration: underline;
+
+        form label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        form select, form input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        button {
             margin-top: 20px;
-            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(229, 197, 39, 0.903);
+            border: none;
+            color: #1b1b1b;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #f7de57;
         }
     </style>
 </head>
 <body>
+    <div class="details-container">
+        <h2><?= htmlspecialchars($volcano['name']) ?></h2>
+        <img src="<?= htmlspecialchars($volcano['image']) ?>" alt="<?= htmlspecialchars($volcano['name']) ?>">
+        <p><?= htmlspecialchars($volcano['description']) ?></p>
+        <p><strong>Localisation :</strong> <?= htmlspecialchars($volcano['location']) ?></p>
+        <p><strong>Prix de base :</strong> <?= htmlspecialchars($volcano['price']) ?></p>
 
-<div class="volcano-details">
-    <img src="<?= htmlspecialchars($volcano['image']) ?>" alt="<?= htmlspecialchars($volcano['name']) ?>">
-    <h1><?= htmlspecialchars($volcano['name']) ?></h1>
-    <p><strong>Localisation :</strong> <?= htmlspecialchars($volcano['location']) ?></p>
-    <p><strong>Région :</strong> <?= htmlspecialchars($volcano['region']) ?></p>
-    <p><strong>Note :</strong> <?= str_repeat('★', (int)$volcano['rating']) ?></p>
-    <p><strong>Prix de base :</strong> <?= htmlspecialchars($volcano['price']) ?></p>
-    <p><?= htmlspecialchars($volcano['description']) ?></p>
+        <form action="recap.php" method="POST">
+            <input type="hidden" name="id" value="<?= $id ?>">
 
-    <div class="options">
-        <div class="option-block">
-            <h3>Transport</h3>
-            <p>Vol aller-retour inclus depuis Paris. Transferts locaux en 4x4 ou navette selon la destination.</p>
-        </div>
-        <div class="option-block">
-            <h3>Hébergement</h3>
-            <p>Hôtels 3 à 4 étoiles, petit déjeuner inclus. Options de logement en lodge selon les lieux.</p>
-        </div>
-        <div class="option-block">
-            <h3>Excursions & Activités</h3>
-            <p>Randonnées guidées, observation du volcan, visites culturelles locales selon le programme.</p>
-        </div>
-        <div class="option-block">
-            <h3>Options supplémentaires</h3>
-            <p>Assurance voyage, guide privé, survol en hélicoptère (dans certains cas), extension séjour.</p>
-        </div>
+            <label for="transport">Type de transport :</label>
+            <select name="transport" id="transport">
+                <option value="avion">Avion</option>
+                <option value="train">Train</option>
+                <option value="bus">Bus</option>
+            </select>
+
+            <label for="hotel">Type d'hébergement :</label>
+            <select name="hotel" id="hotel">
+                <option value="standard">Standard</option>
+                <option value="confort">Confort</option>
+                <option value="luxe">Luxe</option>
+            </select>
+
+            <label for="jours">Nombre de jours :</label>
+            <input type="number" name="jours" id="jours" value="3" min="1">
+
+            <button type="submit">Valider mes choix</button>
+        </form>
     </div>
-
-    <a href="result.php" class="back">← Retour aux résultats</a>
-</div>
-
 </body>
 </html>
