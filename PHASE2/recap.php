@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Récapitulatif de votre voyage</title>
     <link rel="stylesheet" href="head.css">
     <link rel="stylesheet" href="choice.css">
-    
+    <link rel="stylesheet" href="recap.css">
 </head>
 <body>
     <div class="head">
