@@ -75,11 +75,28 @@
 
 .side {
     background-color: #6d071a; 
-    width: 100px;
+    width: 10em;
     margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    
+    display: grid;
+    
+}
+.side a{
+    text-decoration: none;
+    color: #6d071a;
+}
+.side button{
+    margin-top: 33px;
+    margin-left: 1.1em;
+    margin-right: 1em;
+    background-color: #d1d1d1;
+    max-width: 80%;
+    max-height: 90px;
     border-radius: 10px;
 }
-
 .pp img {
     width: 100px;
     height: 100px;
