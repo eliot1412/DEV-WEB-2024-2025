@@ -12,7 +12,7 @@ if (!$volcano) {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Détails - <?= htmlspecialchars($volcano['name']) ?></title>
+    <title>Détails - <?= $volcano['name'] ?></title>
     <link rel="stylesheet" href="head.css">
     <link rel="stylesheet" href="choice.css">
     <style>
@@ -71,37 +71,137 @@ if (!$volcano) {
         button:hover {
             background: #f7de57;
         }
+
+        .activities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .activities-grid label {
+            flex: 1 1 calc(33.333% - 20px);
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid transparent;
+            transition: border 0.3s ease;
+        }
+
+        .activities-grid label:hover,
+        .activities-grid input:checked + img {
+            border-color: rgba(229, 197, 39, 0.903);
+        }
+
+        .activities-grid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .activities-grid span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="details-container">
-        <h2><?= htmlspecialchars($volcano['name']) ?></h2>
-        <img src="<?= htmlspecialchars($volcano['image']) ?>" alt="<?= htmlspecialchars($volcano['name']) ?>">
-        <p><?= htmlspecialchars($volcano['description']) ?></p>
-        <p><strong>Localisation :</strong> <?= htmlspecialchars($volcano['location']) ?></p>
-        <p><strong>Prix de base :</strong> <?= htmlspecialchars($volcano['price']) ?></p>
+        <h2><?= $volcano['name'] ?></h2>
+        <img src="<?= $volcano['image'] ?>" alt="<?= $volcano['name'] ?>">
+        <p><?= $volcano['description'] ?></p>
+        <p><strong>Localisation :</strong> <?= $volcano['location'] ?></p>
+        <p><strong>Prix de base :</strong> <?= $volcano['price'] ?></p>
 
         <form action="recap.php" method="POST">
+            <h3>Choisissez vos activités :</h3>
+            <div class="activities-grid">
+                <label>
+                    <input type="checkbox" name="activities[]" value="randonnée">
+                    <img src="activities/randonnee.jpg" alt="Randonnée sur volcan">
+                    <span>Randonnée sur le volcan (+50€)</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="activities[]" value="visite-musee">
+                    <img src="activities/musee.jpg" alt="Musée volcanologique">
+                    <span>Visite musée volcanologique (+30€)</span>
+                </label>
+                <label>
+                    <input type="checkbox" name="activities[]" value="spa">
+                    <img src="activities/spa.jpg" alt="Spa géothermique">
+                    <span>Spa géothermique (+70€)</span>
+                </label>
+            </div>
+
+            <h3>Choisissez un restaurant partenaire :</h3>
+            <div class="activities-grid">
+                <label>
+                    <input type="radio" name="restaurant" value="local">
+                    <img src="resto/local.jpg" alt="Cuisine locale">
+                    <span>Cuisine locale</span>
+                </label>
+                <label>
+                    <input type="radio" name="restaurant" value="gastro">
+                    <img src="resto/gastro.jpg" alt="Restaurant gastronomique">
+                    <span>Restaurant gastronomique (+40€)</span>
+                </label>
+            </div>
+
+            <h3>Location de voiture :</h3>
+            <div class="activities-grid">
+                <label>
+                    <input type="radio" name="car" value="none" checked>
+                    <img src="voitures/aucune.jpg" alt="Pas de voiture">
+                    <span>Pas de location</span>
+                </label>
+                <label>
+                    <input type="radio" name="car" value="citadine">
+                    <img src="voitures/citadine.jpg" alt="Citadine">
+                    <span>Citadine (+25€/jour)</span>
+                </label>
+                <label>
+                    <input type="radio" name="car" value="suv">
+                    <img src="voitures/suv.jpg" alt="SUV 4x4">
+                    <span>SUV 4x4 (+45€/jour)</span>
+                </label>
+            </div>
+
             <input type="hidden" name="id" value="<?= $id ?>">
 
-            <label for="transport">Type de transport :</label>
-            <select name="transport" id="transport">
-                <option value="avion">Avion</option>
-                <option value="train">Train</option>
-                <option value="bus">Bus</option>
+            <label for="transport">Transport :</label>
+            <select name="transport" id="transport" required>
+                <option value="">-- Choisissez un transport --</option>
+                <option value="avion">Avion (+200€)</option>
+                <option value="train">Train (+120€)</option>
+                <option value="bus">Bus (+80€)</option>
+                <option value="car">Car (+60€)</option>
             </select>
 
-            <label for="hotel">Type d'hébergement :</label>
-            <select name="hotel" id="hotel">
-                <option value="standard">Standard</option>
-                <option value="confort">Confort</option>
-                <option value="luxe">Luxe</option>
+            <label for="hotel">Hébergement :</label>
+            <select name="hotel" id="hotel" required>
+                <option value="">-- Choisissez un hébergement --</option>
+                <option value="standard">Standard (+50€/jour)</option>
+                <option value="confort">Confort (+100€/jour)</option>
+                <option value="luxe">Luxe (+180€/jour)</option>
             </select>
 
             <label for="jours">Nombre de jours :</label>
-            <input type="number" name="jours" id="jours" value="3" min="1">
+            <input type="number" name="jours" id="jours" min="1" max="30" value="3" required>
 
-            <button type="submit">Valider mes choix</button>
+            
+            <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                <a href="results.php" style="text-decoration: none;">
+                    <button type="button" style="background: rgba(255,255,255,0.1); color: white;">← Retour</button>
+                </a>
+
+                <button type="submit">Suivant →</button>
+            </div>
         </form>
     </div>
 </body>
