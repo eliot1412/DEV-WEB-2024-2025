@@ -1,1 +1,95 @@
 
+
+body {
+    background: #1b1b1b;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.details-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: rgba(109, 7, 26, 0.8);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.details-container img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+h2 {
+    color: rgba(229, 197, 39, 0.903);
+}
+
+form label {
+    display: block;
+    margin: 15px 0 5px;
+}
+
+form select, form input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: rgba(229, 197, 39, 0.903);
+    border: none;
+    color: #1b1b1b;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #f7de57;
+}
+
+.activities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.activities-grid label {
+    flex: 1 1 calc(33.333% - 20px);
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.activities-grid label:hover,
+.activities-grid input:checked + img {
+    border-color: rgba(229, 197, 39, 0.903);
+}
+
+.activities-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.activities-grid span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff;
+}
