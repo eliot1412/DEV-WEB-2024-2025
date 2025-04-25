@@ -154,3 +154,30 @@
     text-decoration: none;
     border-radius: 5px;
 }
+/*reservation*/
+
+.reservation-container {
+    background-color: #c6c4c4;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px;
+    font-size: large;
+}
+.reservation {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 5px solid #6d071a;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.reservation h2 {
+    color: #6d071a;
+    margin-bottom: 10px;
+}
+.reservation ul {
+    padding-left: 20px;
+}
+.reservation li {
+    margin-bottom: 5px;
+ }
