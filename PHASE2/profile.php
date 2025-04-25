@@ -66,9 +66,6 @@ $fichier = 'utilisateurs.json';
                 <?php if ($isadmin === true) { ?>
                 <li><a href="admin.php">Page administrateur</a></li>
                 <?php } ?>
-                
-                
-
             </ul>
 
 
@@ -90,11 +87,15 @@ $fichier = 'utilisateurs.json';
             
             
                 <div class="Principal">
+                    
                     <div class="change">
+                        <a href="aides.php">
                         <button>
                             <img src="pencil.jpg" alt="Modifier">
                         </button>
+                        <a>
                     </div>
+                            
                     <div class="profile">
                         
                         
