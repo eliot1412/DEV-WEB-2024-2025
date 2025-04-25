@@ -115,6 +115,36 @@ if (empty($volcanoData)) {
             grid-template-columns: 1fr; /* 1 colonne sur petits mobiles */
         }
     }
+
+    /* Pour rendre toute la carte cliquable */
+.volcano-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.volcano-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.volcano-link:hover .volcano-card {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(255, 220, 77, 0.4);
+    background: rgba(150, 20, 40, 0.9);
+    cursor: pointer;
+}
+
+/* Ajoute un effet subtil à l'image aussi */
+.volcano-image {
+    transition: transform 0.3s ease;
+}
+
+.volcano-link:hover .volcano-image {
+    transform: scale(1.05);
+}
+
+
 </style>
     <meta charset="UTF-8">
 </head>
@@ -162,26 +192,28 @@ if (empty($volcanoData)) {
         </div>
         
         <div class="results-container" id="results-container">
-            <?php foreach ($volcanoData as $index => $volcano): ?>
-                <div class="volcano-card" data-region="<?= htmlspecialchars($volcano['region'] ?? '') ?>" style="animation-delay: <?= $index * 0.1 ?>s">
-                    <img src="<?= htmlspecialchars($volcano['image'] ?? 'default.jpg') ?>"
-                         alt="<?= htmlspecialchars($volcano['name'] ?? '') ?>"
-                         class="volcano-image">
-                    <div class="volcano-info">
-                        <h3 class="volcano-name"><?= htmlspecialchars($volcano['name'] ?? '') ?></h3>
-                        <p class="volcano-location"><?= htmlspecialchars($volcano['location'] ?? '') ?></p>
-                        <div class="volcano-rating"><?= str_repeat('★', (int)($volcano['rating'] ?? 0)) ?></div>
-                        <p class="volcano-price">À partir de <?= htmlspecialchars($volcano['price'] ?? '') ?></p>
-                        <p class="volcano-description"><?= htmlspecialchars($volcano['description'] ?? '') ?></p>
-                        <a href="details.php?id=<?= $index ?>" class="aides a">Voir détails</a>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+        <?php foreach ($volcanoData as $index => $volcano): ?>
+    <a href="details.php?id=<?= $index ?>" class="volcano-link">
+        <div class="volcano-card" data-region="<?= htmlspecialchars($volcano['region'] ?? '') ?>" style="animation-delay: <?= $index * 0.1 ?>s">
+            <img src="<?= htmlspecialchars($volcano['image'] ?? 'default.jpg') ?>"
+                 alt="<?= htmlspecialchars($volcano['name'] ?? '') ?>"
+                 class="volcano-image">
+            <div class="volcano-info">
+                <h3 class="volcano-name"><?= htmlspecialchars($volcano['name'] ?? '') ?></h3>
+                <p class="volcano-location"><?= htmlspecialchars($volcano['location'] ?? '') ?></p>
+                <div class="volcano-rating"><?= str_repeat('★', (int)($volcano['rating'] ?? 0)) ?></div>
+                <p class="volcano-price">À partir de <?= htmlspecialchars($volcano['price'] ?? '') ?></p>
+                <p class="volcano-description"><?= htmlspecialchars($volcano['description'] ?? '') ?></p>
+            </div>
+        </div>
+    </a>
+<?php endforeach; ?>
+
         </div>
     </div>
     
     <div class="tail">
-        <a href="accueil.php">
+        <a href="accueil.html">
             <p>Acceuil</p>
         </a>
         <p>|S.A.V|...</p>
