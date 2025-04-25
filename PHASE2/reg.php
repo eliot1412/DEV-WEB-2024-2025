@@ -113,10 +113,13 @@ if (isset($_POST['submit'])) {
             $nouvel_utilisateur = array(
             'nom' => $nom,
             'prenom' => $prenom,
+            'sexe' => ' ',
             'email' => $email,
             'date_naissance' => $date_naissance,
             'password' => $motdepasse1,
-            'admin' => "0"
+            'admin' => "0",
+            'credit' => "0000 0000 0000 0000",
+            'adresse'=> "00;Nom de rue;Ville;Adresse postale;Pays"
         );
 
         $utilisateurs[] = $nouvel_utilisateur;

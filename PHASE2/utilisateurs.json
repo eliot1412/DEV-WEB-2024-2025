@@ -1,43 +1,68 @@
 [
-    
     {
         "nom": "Ddg",
         "prenom": "Eliot",
+        "sexe": "Homme",
         "email": "eliot@email.com",
         "date_naissance": "2004-05-11",
         "password": "123",
-        "admin": "0"
+        "admin": "0",
+        "credit": "0000 0000 0000 0000",
+        "adresse": "00;Nom de rue;Ville;Adresse postale;Pays"
     },
     {
         "nom": "Own",
         "prenom": "Jude",
+        "sexe": "Homme",
         "email": "jude@email.com",
         "date_naissance": "2005-04-30",
         "password": "456",
-        "admin": "0"
+        "admin": "0",
+        "credit": "0000 0000 0000 0000",
+        "adresse": "00;Nom de rue;Ville;Adresse postale;Pays"
     },
     {
         "nom": "Jey",
         "prenom": "Habilan",
+        "sexe": "Homme",
         "email": "habilan@email.com",
         "date_naissance": "2005-02-07",
         "password": "789",
-        "admin": "0"
+        "admin": "0",
+        "credit": "0000 0000 0000 0000",
+        "adresse": "00;Nom de rue;Ville;Adresse postale;Pays"
     },
     {
         "nom": "admin1",
         "prenom": "ad",
+        "sexe": "Femme",
         "email": "admin1@email.com",
         "date_naissance": "2000-01-01",
         "password": "000",
-        "admin": "1"
+        "admin": "1",
+        "credit": "0000 0000 0000 0000",
+        "adresse": "00;Nom de rue;Ville;Adresse postale;Pays"
     },
     {
         "nom": "admin2",
         "prenom": "admi",
+        "sexe": "Homme",
         "email": "admin2@email.com",
         "date_naissance": "2000-01-01",
         "password": "000",
-        "admin": "1"
+        "admin": "1",
+        "credit": "0000 0000 0000 0000",
+        "adresse": "00;Nom de rue;Ville;Adresse postale;Pays"
+    },
+    {
+        "nom": "test",
+        "prenom": "test",
+        "sexe": " ",
+        "email": "test@email.com",
+        "date_naissance": "2004-05-11",
+        "password": "test",
+        "admin": "0",
+        "credit": "0000 0000 0000 0000",
+        "adresse": "00;Nom de rue;Ville;Adresse postale;Pays"
     }
 ]
