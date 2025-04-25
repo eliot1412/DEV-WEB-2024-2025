@@ -84,8 +84,8 @@ $fichier = 'utilisateurs.json';
     <div class="table">
         
                 <div class="side"> 
-                    <p>&nbsp;</p>  
-                    
+                    <button style="background-color: #bdbdbd7e;">Mes infos</button>
+                    <button onclick="window.location.href='profile/reservations.php'">Mes résérvations</button>
                 </div>
             
             
@@ -141,4 +141,3 @@ $fichier = 'utilisateurs.json';
 </div>
 </body>
 </html>
-
