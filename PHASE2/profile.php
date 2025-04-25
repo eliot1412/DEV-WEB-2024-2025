@@ -122,7 +122,7 @@ $fichier = 'utilisateurs.json';
                     </form>
                     <!-- Bouton Déconnexion -->
                     <div class="logout-btn-container">
-                        <a href="logout.php" class="logout-btn">
+                        <a href="function/logout.php" class="logout-btn">
                             Se déconnecter
                         </a>
                     </div>
@@ -138,4 +138,5 @@ $fichier = 'utilisateurs.json';
 </div>
 </body>
 </html>
+
 
