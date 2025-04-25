@@ -94,25 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Récapitulatif de votre voyage</title>
     <link rel="stylesheet" href="head.css">
     <link rel="stylesheet" href="choice.css">
-    <style>
-        .recap-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: rgba(109, 7, 26, 0.85);
-            color: white;
-            padding: 30px;
-            border-radius: 12px;
-        }
-        h1 {
-            color: rgba(229, 197, 39, 0.9);
-        }
-        .recap-item {
-            margin-bottom: 15px;
-        }
-        ul {
-            margin: 10px 0 0 20px;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="head">
