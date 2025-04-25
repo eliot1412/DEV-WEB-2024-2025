@@ -18,14 +18,19 @@ $fichier = 'utilisateurs.json';
             $email_trouve = true;
             $nom = $u['nom'];
             $prenom = $u['prenom'];
+            $sexe = $u['sexe'];
             $email = $u['email'];
             $date_naissance = $u['date_naissance'];
             $password = $u['password'];
             $isadmin = false;
             if ($u['admin']==1) {
                 $isadmin=true;
-                
+            
             }
+            $credit_croped = '**** **** **** ' . substr($u['credit'], -4);
+            $adresse = $u['adresse'];
+            $adresse_parts = explode(';', $adresse);
+
         }
     }
 
@@ -102,7 +107,7 @@ $fichier = 'utilisateurs.json';
                     <div class="personal_data">
                         <ul>
                             <h1>Données personnelles :</h1>
-                            <p>Sexe : Femme/Homme/Autre</p>
+                            <p>Sexe : <?php print($sexe) ?></p>
                             <p>Date de naissance : <?php print($date_naissance) ?></p>
                             <p>Adresse email : <?php print($email) ?></p>
                             <p>Mot de passe : <?php echo str_repeat('*', strlen($password)); ?></p>
@@ -113,16 +118,15 @@ $fichier = 'utilisateurs.json';
                     <div class="pay_data">
                         <ul>
                             <h1>Information de paiement :</h1>
-                            <p>Adresse de facturation : XX/rue XX/Ville :XX/Pays:XX</p>
-                            <p>Adresse de facturation : <input style="width:35px" type="number" name="number" value="00"> <input type="text" name="street" value="Nom de votre rue"> <input type="text" name="city" value="Ville">  <input type="number" name="postal code" value="00000"> <input type="text" name="country" value="Pays"> </p>
-                            <p>Carte banquaire enregistrée : <input type="text" value="**** **** **** $credit_croped"></p>
+                            <p>Adresse de facturation : <?php print($adresse_parts[0].' '.$adresse_parts[1].' '.$adresse_parts[2].' | '.$adresse_parts[3].'  | '.$adresse_parts[4]); ?>
+                            <p>Carte banquaire enregistrée : <?php print($credit_croped) ?>
                         </ul>
                     </div>
 
                     </form>
                     <!-- Bouton Déconnexion -->
                     <div class="logout-btn-container">
-                        <a href="function/logout.php" class="logout-btn">
+                        <a href="logout.php" class="logout-btn">
                             Se déconnecter
                         </a>
                     </div>
@@ -138,5 +142,4 @@ $fichier = 'utilisateurs.json';
 </div>
 </body>
 </html>
-
 
