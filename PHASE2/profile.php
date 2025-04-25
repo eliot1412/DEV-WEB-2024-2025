@@ -2,7 +2,7 @@
 <?php 
 session_start();
 if (!isset($_SESSION['email'])) {
-    header('Location: reg.php');
+    header('Location: log.php');
     exit();
 }
 $fichier = 'utilisateurs.json';
@@ -90,7 +90,6 @@ $fichier = 'utilisateurs.json';
             
             
                 <div class="Principal">
-                <form action="log.php" method="post">
                     <div class="change">
                         <button>
                             <img src="pencil.jpg" alt="Modifier">
