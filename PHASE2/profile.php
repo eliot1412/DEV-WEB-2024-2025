@@ -21,6 +21,11 @@ $fichier = 'utilisateurs.json';
             $email = $u['email'];
             $date_naissance = $u['date_naissance'];
             $password = $u['password'];
+            $isadmin = false;
+            if ($u['admin']==1) {
+                $isadmin=true;
+                
+            }
         }
     }
 
@@ -53,6 +58,11 @@ $fichier = 'utilisateurs.json';
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
+                <?php if ($isadmin === true) { ?>
+                <li><a href="admin.php">Page administrateur</a></li>
+                <?php } ?>
+                
+                
 
             </ul>
 
@@ -105,7 +115,7 @@ $fichier = 'utilisateurs.json';
                             <h1>Information de paiement :</h1>
                             <p>Adresse de facturation : XX/rue XX/Ville :XX/Pays:XX</p>
                             <p>Adresse de facturation : <input style="width:35px" type="number" name="number" value="00"> <input type="text" name="street" value="Nom de votre rue"> <input type="text" name="city" value="Ville">  <input type="number" name="postal code" value="00000"> <input type="text" name="country" value="Pays"> </p>
-                            <p>Carte banquaire enregistrée : <input type="password"></p>
+                            <p>Carte banquaire enregistrée : <input type="text" value="**** **** **** $credit_croped"></p>
                         </ul>
                     </div>
 
