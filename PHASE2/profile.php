@@ -2,7 +2,7 @@
 <?php 
 session_start();
 if (!isset($_SESSION['email'])) {
-    header('Location: accueil.php');
+    header('Location: reg.php');
     exit();
 }
 $fichier = 'utilisateurs.json';
@@ -104,9 +104,8 @@ $fichier = 'utilisateurs.json';
                         <ul>
                             <h1>Information de paiement :</h1>
                             <p>Adresse de facturation : XX/rue XX/Ville :XX/Pays:XX</p>
-                            <p>Adresse de facturation : <input type="number" name="number" autocomplete="n° de rue"> <input type="text" name="street" autocomplete="nom de rue"> <input type="text" name="city" autocomplete="Ville">  <input type="number" name="postal code" autocomplete="Code postal"> </p> </p> <input type="text" name="country" autocomplete="Pays"> </p>
-                            <p>Carte banquaire enregistrée : num:*******00/aucune</p>
-                            <p>Carte banquaire enregistrée : <input type="password" value=></p>
+                            <p>Adresse de facturation : <input style="width:35px" type="number" name="number" value="00"> <input type="text" name="street" value="Nom de votre rue"> <input type="text" name="city" value="Ville">  <input type="number" name="postal code" value="00000"> <input type="text" name="country" value="Pays"> </p>
+                            <p>Carte banquaire enregistrée : <input type="password"></p>
                         </ul>
                     </div>
 
