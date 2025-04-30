@@ -132,6 +132,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="recap-item"><strong>💰 Prix total estimé :</strong> <span style="color: gold; font-size: 1.3em;"><?= $total ?> €</span></div>
         <div class="recap-item">📌 Sauvegardé le : <?= date('d/m/Y à H:i') ?></div>
+        <form action="paiement.php" method="POST">
+            <input type="hidden" name="voyage_id" value="<?= $voyage['id'] ?>">
+            <input type="hidden" name="montant" value="<?= $prix_total ?>">
+            <input type="submit" value="Procéder au paiement">
+        </form>
     </div>
 </body>
 </html>
