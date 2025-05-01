@@ -9,7 +9,7 @@ $transaction = substr(md5(uniqid()), 0, 12);
 $montant = number_format((float)$_POST['montant'], 2, '.', '');
 
 $vendeur = 'MI-2_D'; 
-$retour = 'http://localhost/retour_paiement.php?session=test123';
+$retour = 'http://localhost/clickjourney_cybank/retour_paiement.php?session='.session_id();
 
 
 $api_key = getAPIKey($vendeur);
