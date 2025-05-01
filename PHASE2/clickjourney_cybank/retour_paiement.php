@@ -43,6 +43,6 @@ if ($statut === "accepted") {
     echo '<a href="profile.php">Voir mes voyages</a>';
 } else {
     echo "<h2>Paiement refusé ❌</h2>";
-    echo '<a href="recap.php">Retour à la configuration du voyage</a>';
+    echo '<a href="../recap.php">Retour à la configuration du voyage</a>';
 }
 ?>
