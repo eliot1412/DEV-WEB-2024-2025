@@ -39,36 +39,27 @@ if (empty($volcanoData)) {
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="results.css">
     <link rel="stylesheet" type="text/css" href="choice.css">
-
     <meta charset="UTF-8">
 </head>
 <body>
     <div class="head">
-
         <ul>
             <a href="accueil.php">
                 <img src="VolcanFly.jpg" alt="Accueil">
             </a>
-
         </ul>
         <div class="headers">
-
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
                 <li><a href="reg.php">Inscription</a></li>
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
-
             </ul>
-
-
-
         </div>
-
         <a href="profile.php">
             <img src="pp.jpg" alt="profile">
-            </a>
+        </a>
     </div>
     
     <div class="contenu">
@@ -88,21 +79,20 @@ if (empty($volcanoData)) {
         <div class="results-container" id="results-container">
         <?php foreach ($volcanoData as $index => $volcano): ?>
     <a href="details.php?id=<?= $index ?>" class="volcano-link">
-        <div class="volcano-card" data-region="<?= htmlspecialchars($volcano['region'] ?? '') ?>" style="animation-delay: <?= $index * 0.1 ?>s">
-            <img src="<?= htmlspecialchars($volcano['image'] ?? 'default.jpg') ?>"
-                 alt="<?= htmlspecialchars($volcano['name'] ?? '') ?>"
+        <div class="volcano-card" data-region="<?= $volcano['region'] ?? '' ?>" style="animation-delay: <?= $index * 0.1 ?>s">
+            <img src="<?= $volcano['image'] ?? 'default.jpg' ?>"
+                 alt="<?= $volcano['name'] ?? '' ?>"
                  class="volcano-image">
             <div class="volcano-info">
-                <h3 class="volcano-name"><?= htmlspecialchars($volcano['name'] ?? '') ?></h3>
-                <p class="volcano-location"><?= htmlspecialchars($volcano['location'] ?? '') ?></p>
+                <h3 class="volcano-name"><?= $volcano['name'] ?? '' ?></h3>
+                <p class="volcano-location"><?= $volcano['location'] ?? '' ?></p>
                 <div class="volcano-rating"><?= str_repeat('★', (int)($volcano['rating'] ?? 0)) ?></div>
-                <p class="volcano-price">À partir de <?= htmlspecialchars($volcano['price'] ?? '') ?></p>
-                <p class="volcano-description"><?= htmlspecialchars($volcano['description'] ?? '') ?></p>
+                <p class="volcano-price">À partir de <?= $volcano['price'] ?? '' ?></p>
+                <p class="volcano-description"><?= $volcano['description'] ?? '' ?></p>
             </div>
         </div>
     </a>
 <?php endforeach; ?>
-
         </div>
     </div>
     
@@ -112,7 +102,5 @@ if (empty($volcanoData)) {
         </a>
         <p>|S.A.V|...</p>
     </div>
-    
-   
 </body>
 </html>
