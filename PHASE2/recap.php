@@ -111,32 +111,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="profile.php"><img src="pp.jpg" alt="profile"></a>
     </div>
 
-    <div class="recap-container">
-        <h1>Récapitulatif de votre voyage</h1>
-        <div class="recap-item"><strong>Volcan sélectionné :</strong> <?= htmlspecialchars($selectedVolcano['name']) ?></div>
-        <div class="recap-item"><strong>Transport choisi :</strong> <?= htmlspecialchars($transport) ?></div>
-        <div class="recap-item"> <strong>Hébergement :</strong> <?= htmlspecialchars($hotel) ?></div>
-        <div class="recap-item"><strong>Durée :</strong> <?= $jours ?> jour(s)</div>
-        <div class="recap-item"> <strong>Location de voiture :</strong> <?= htmlspecialchars($car) ?></div>
-        <div class="recap-item"> <strong>Restaurant :</strong> <?= htmlspecialchars($restaurant) ?></div>
+   <div class="recap-container">
+    <h1>Récapitulatif de votre voyage</h1>
+    <div class="recap-item"><strong>Volcan sélectionné :</strong> <?= $selectedVolcano['name'] ?></div>
+    <div class="recap-item"><strong>Transport choisi :</strong> <?= $transport ?></div>
+    <div class="recap-item"> <strong>Hébergement :</strong> <?= $hotel ?></div>
+    <div class="recap-item"><strong>Durée :</strong> <?= $jours ?> jour(s)</div>
+    <div class="recap-item"> <strong>Location de voiture :</strong> <?= $car ?></div>
+    <div class="recap-item"> <strong>Restaurant :</strong> <?= $restaurant ?></div>
 
-        <?php if (!empty($activities)): ?>
-            <div class="recap-item">🎯 <strong>Activités sélectionnées :</strong>
-                <ul>
-                    <?php foreach ($activities as $act): ?>
-                        <li><?= htmlspecialchars($act) ?> (<?= $activityPrices[$act] ?? 0 ?> €)</li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
+    <?php if (!empty($activities)): ?>
+        <div class="recap-item">🎯 <strong>Activités sélectionnées :</strong>
+            <ul>
+                <?php foreach ($activities as $act): ?>
+                    <li><?= $act ?> (<?= $activityPrices[$act] ?? 0 ?> €)</li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
-        <div class="recap-item"><strong>💰 Prix total estimé :</strong> <span style="color: gold; font-size: 1.3em;"><?= $total ?> €</span></div>
-        <div class="recap-item">📌 Sauvegardé le : <?= date('d/m/Y à H:i') ?></div>
-        <form action="clickjourney_cybank/paiement.php" method="POST">
-            <input type="hidden" name="voyage_id" value="<?= $voyage['id'] ?>">
-            <input type="hidden" name="montant" value="<?= $prix_total ?>">
-            <input type="submit" value="Procéder au paiement">
-        </form>
-    </div>
+    <div class="recap-item"><strong>💰 Prix total estimé :</strong> <span style="color: gold; font-size: 1.3em;"><?= $total ?> €</span></div>
+    <div class="recap-item">📌 Sauvegardé le : <?= date('d/m/Y à H:i') ?></div>
+    <form action="clickjourney_cybank/paiement.php" method="POST">
+        <input type="hidden" name="voyage_id" value="<?= $voyage['id'] ?>">
+        <input type="hidden" name="montant" value="<?= $prix_total ?>">
+        <input type="submit" value="Procéder au paiement">
+    </form>
+</div>
+
 </body>
 </html>
