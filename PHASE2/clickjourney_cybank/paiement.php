@@ -2,32 +2,47 @@
 session_start();
 require('getapikey.php');
 
-if (!isset($_POST['montant'])) {
-    die("Erreur : montant non fourni");
-}
-
-$transaction = substr(md5(uniqid()), 0, 12); 
-$montant = number_format((float)$_POST['montant'], 2, '.', '');
-
-$vendeur = 'MI-2_D'; 
-$retour = 'http://localhost/clickjourney_cybank/retour_paiement.php?session='.session_id();
-
+$transaction = $_GET['transaction'] ?? '';
+$montant = $_GET['montant'] ?? '';
+$vendeur = $_GET['vendeur'] ?? '';
+$statut = $_GET['status'] ?? '';
+$control_recu = $_GET['control'] ?? '';
 
 $api_key = getAPIKey($vendeur);
-if ($api_key === 'zzzz') {
-    die("Erreur : vendeur invalide");
+$control_attendu = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $statut . "#");
+
+if ($control_attendu !== $control_recu) {
+    echo "❌ Erreur de validation de la réponse CYBank";
+    exit;
 }
 
+if ($statut === "accepted") {
+    echo "<h2>Paiement accepté ✅</h2>";
 
-$control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
+    $data = [
+        "user" => $_SESSION['user'] ?? "anonyme",
+        "transaction" => $transaction,
+        "montant" => $montant,
+        "vendeur" => $vendeur,
+        "date" => date("Y-m-d H:i:s"),
+        "voyage" => $_SESSION['voyage'] ?? "non spécifié"
+    ];
 
+
+    $file = __DIR__ . "../data/transactions.json";
+    $transactions = [];
+
+    if (file_exists($file)) {
+        $transactions = json_decode(file_get_contents($file), true) ?? [];
+    }
+
+    $transactions[] = $data;
+    file_put_contents($file, json_encode($transactions, JSON_PRETTY_PRINT));
+
+    echo '<p>Transaction enregistrée avec succès.</p>';
+    echo '<a href="../profile.php">Voir mes voyages</a>';
+} else {
+    echo "<h2>Paiement refusé ❌</h2>";
+    echo '<a href="paiement.php">Retour à la configuration du voyage</a>';
+}
 ?>
-
-<form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
-  <input type="hidden" name="transaction" value="<?= $transaction ?>">
-  <input type="hidden" name="montant" value="<?= $montant ?>">
-  <input type="hidden" name="vendeur" value="<?= $vendeur ?>">
-  <input type="hidden" name="retour" value="<?= $retour ?>">
-  <input type="hidden" name="control" value="<?= $control ?>">
-  <input type="submit" value="Payer avec CYBank">
-</form>
