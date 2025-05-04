@@ -44,6 +44,5 @@ if ($statut === "accepted") {
 } else {
     echo "<h2>Paiement refusé ❌</h2>";
     echo '<a href="paiement.php">Retour à la configuration du voyage</a>';
-    echo "Statut du paiement : " . $statut;
 }
 ?>
