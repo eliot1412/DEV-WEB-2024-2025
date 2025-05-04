@@ -29,7 +29,7 @@ if ($statut === "accepted") {
     ];
 
 
-    $file = __DIR__ . "/data/transactions.json";
+    $file = __DIR__ . "../data/transactions.json";
     $transactions = [];
 
     if (file_exists($file)) {
@@ -40,9 +40,10 @@ if ($statut === "accepted") {
     file_put_contents($file, json_encode($transactions, JSON_PRETTY_PRINT));
 
     echo '<p>Transaction enregistrée avec succès.</p>';
-    echo '<a href="profile.php">Voir mes voyages</a>';
+    echo '<a href="../profile.php">Voir mes voyages</a>';
 } else {
     echo "<h2>Paiement refusé ❌</h2>";
-    echo '<a href="../recap.php">Retour à la configuration du voyage</a>';
+    echo '<a href="paiement.php">Retour à la configuration du voyage</a>';
+    echo "Statut du paiement : " . $statut;
 }
 ?>
