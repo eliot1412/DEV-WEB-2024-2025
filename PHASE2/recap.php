@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="recap-item">📌 Sauvegardé le : <?= date('d/m/Y à H:i') ?></div>
     <form action="clickjourney_cybank/paiement.php" method="POST">
         <input type="hidden" name="voyage_id" value="<?= $voyage['id'] ?>">
-        <input type="hidden" name="montant" value="<?= $prix_total ?>">
+        <input type="hidden" name="montant" value="<?= $total ?>">
         <input type="submit" value="Procéder au paiement">
     </form>
 </div>
