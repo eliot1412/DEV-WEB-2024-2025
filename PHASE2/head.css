@@ -65,3 +65,21 @@ body {
 .head a:hover {
     transform: scale(0.9);
 }
+
+/*Tail part*/
+
+    .tail {
+        display: flex;
+        justify-content: center;
+        background-color: #6d071a;
+        padding: 0px;
+        margin: 10px;
+        border-radius: 10px;
+    
+     
+    }
+    
+    
+    .tail p {
+        color: white;
+    }
