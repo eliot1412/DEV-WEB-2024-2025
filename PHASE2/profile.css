@@ -130,15 +130,12 @@
     margin-top: 10px;   
     position: relative; 
     top: 0px;
-    left: 185vh;
+    left: 95%;
     border-radius: 10px;    
 }
 .change img{
     width: 2em;
     height: 30px;
-    
-     
-    
     border-radius: 10px;      
 }
 

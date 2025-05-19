@@ -27,7 +27,13 @@ $fichier = 'utilisateurs.json';
                 $isadmin=true;
             
             }
-            $credit_croped = '**** **** **** ' . substr($u['credit'], -4);
+            
+            if($u['credit']=="0000 0000 0000 0000") {
+                    $credit_croped = 'Aucune carte enregistrée';
+            }
+            else if(isset($u['credit']) && !empty($u['credit'])) {
+                    $credit_croped = '**** **** **** ' . substr($u['credit'], -4);
+                } 
             $adresse = $u['adresse'];
             $adresse_parts = explode(';', $adresse);
 
@@ -89,11 +95,11 @@ $fichier = 'utilisateurs.json';
                 <div class="Principal">
                     
                     <div class="change">
-                        <a href="aides.php">
-                        <button>
-                            <img src="pencil.jpg" alt="Modifier">
-                        </button>
-                        <a>
+                        <form action="editprofile.php" method="get">
+                            <button type="submit" title="Modifier">
+                                <img src="pencil.jpg" alt="Modifier" />
+                            </button>
+                        </form>
                     </div>
                             
                     <div class="profile">
