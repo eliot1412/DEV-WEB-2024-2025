@@ -73,11 +73,11 @@
             </div>
         </form>
     </div>
-    <div class="tail">&
-        <a href="accueil.php">
-            <p>Acceuil</p>
-        </a>
-        <p>|S.A.V|...</p>
-    </div>
+    <div class="tail">
+    <a href="accueil.php">
+        <p>Accueil</p>
+    </a>
+    <p>| Destinations | Offres spéciales | Contact | À propos</p>
+</div>
 </body>
 </html>
