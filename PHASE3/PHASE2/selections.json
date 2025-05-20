@@ -1,0 +1,67 @@
+[
+    {
+        "volcano": "Randonn\u00e9e au Teide",
+        "transport": "avion",
+        "hotel": "confort",
+        "jours": 3,
+        "car": "none",
+        "restaurant": "local",
+        "activities": [
+            "randonn\u00e9e"
+        ],
+        "total": 550,
+        "timestamp": "2025-05-03 14:32:17"
+    },
+    {
+        "volcano": "Randonn\u00e9e au Teide",
+        "transport": "avion",
+        "hotel": "confort",
+        "jours": 3,
+        "car": "none",
+        "restaurant": "local",
+        "activities": [
+            "randonn\u00e9e"
+        ],
+        "total": 550,
+        "timestamp": "2025-05-03 14:32:37"
+    },
+    {
+        "volcano": "Aventure au Piton de la Fournaise",
+        "transport": "train",
+        "hotel": "standard",
+        "jours": 3,
+        "car": "citadine",
+        "restaurant": "local",
+        "activities": [
+            "spa"
+        ],
+        "total": 415,
+        "timestamp": "2025-05-03 14:57:29"
+    },
+    {
+        "volcano": "Trek au Villarrica",
+        "transport": "car",
+        "hotel": "standard",
+        "jours": 3,
+        "car": "none",
+        "restaurant": "local",
+        "activities": [
+            "randonn\u00e9e"
+        ],
+        "total": 260,
+        "timestamp": "2025-05-03 15:31:00"
+    },
+    {
+        "volcano": "Exp\u00e9dition de l'Etna",
+        "transport": "train",
+        "hotel": "standard",
+        "jours": 3,
+        "car": "none",
+        "restaurant": "local",
+        "activities": [
+            "randonn\u00e9e"
+        ],
+        "total": 320,
+        "timestamp": "2025-05-16 21:37:20"
+    }
+]
