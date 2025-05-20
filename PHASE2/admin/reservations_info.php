@@ -67,6 +67,10 @@ session_start();
             <button onclick="window.location.href='payments_info.php'">Paiements</button>
         </div>
         <div class="Principal">
+
+        <div class="alert-box" style="margin: 20px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffeeba; border-radius: 8px; color: #856404;">
+            <strong>Note :</strong> Cette page est en cours de développement et ne contient pas encore de fonctionnalités utiles car elle n'est pas demandée dans le cahier des charges. Aller voir dans l'onglet gestion d'utilisateurs. Merci de votre compréhension.
+        </div>
             
             <div class="stat-box">
                     <h2>Réservations</h2>

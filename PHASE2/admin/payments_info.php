@@ -66,6 +66,14 @@ session_start();
             <button style="background-color: #bdbdbd7e;">Paiements</button>
         </div>
         <div class="Principal">
+
+        <div class="alert-box" style="margin: 20px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffeeba; border-radius: 8px; color: #856404;">
+        <strong>Note :</strong><br>
+        Cette page est en cours de développement et ne contient pas encore de fonctionnalités utiles.<br>
+        Elle n'est pas prévue dans le cahier des charges actuel.<br>
+        Veuillez consulter l'onglet <strong>Gestion des utilisateurs</strong> pour les fonctionnalités disponibles.<br>
+        Merci de votre compréhension.
+        </div>
             
             <div class="stat-box">
 
