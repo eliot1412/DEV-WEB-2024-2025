@@ -9,6 +9,22 @@ if (!isset($_SESSION['email'])) {
 $selectionFile = __DIR__ . '/../selections.json';
 $selections = [];
 
+if (!file_exists('../utilisateurs.json')) {
+        echo "<p style='color:red; text-align:center;'>Aucun utilisateur enregistré.</p>";
+        exit();
+    }
+
+$utilisateurs = json_decode(file_get_contents('../utilisateurs.json'), true);
+
+foreach ($utilisateurs as $u) {
+        if ($u['email'] === $_SESSION['email']) {
+            if ($u['admin']==1) {
+                $isadmin=true;
+            
+            }
+        }
+}
+
 // Charge toutes les réservations
 if (file_exists($selectionFile)) {
     $allSelections = json_decode(file_get_contents($selectionFile), true);
@@ -40,6 +56,9 @@ if (file_exists($selectionFile)) {
             <li><a href="../log.php">Connexion</a></li>
             <li><a href="../choice.php">Voyages</a></li>
             <li><a href="../aides.php">Aides</a></li>
+            <?php if ($isadmin === true) { ?>
+            <li><a href="../admin.php">Page administrateur</a></li>
+            <?php } ?>
         </ul>
     </div>
     <a href="../profile.php"><img src="../pp.jpg" alt="profile"></a>
