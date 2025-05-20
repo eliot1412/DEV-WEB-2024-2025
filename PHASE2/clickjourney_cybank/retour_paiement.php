@@ -29,18 +29,34 @@ if ($statut === "accepted") {
     ];
 
 
-    $file = __DIR__ . "../data/transactions.json";
+    $transactionFile = "../data/transactions.json";
     $transactions = [];
 
-    if (file_exists($file)) {
-        $transactions = json_decode(file_get_contents($file), true) ?? [];
+    if (file_exists($transactionFile)) {
+        $transactions = json_decode(file_get_contents($transactionFile), true) ?? [];
     }
 
     $transactions[] = $data;
-    file_put_contents($file, json_encode($transactions, JSON_PRETTY_PRINT));
+    file_put_contents($transactionFile, json_encode($transactions, JSON_PRETTY_PRINT));
 
     echo '<p>Transaction enregistrée avec succès.</p>';
     echo '<a href="../profile.php">Voir mes voyages</a>';
+
+    $selectionFile ='../selections.json';
+    $newSelection=json_decode($_SESSION['jNewSelection']);
+
+    $allSelections = [];
+    if (file_exists($selectionFile)) {
+    $allSelections = json_decode(file_get_contents($selectionFile), true);
+    }
+
+    $allSelections[] = $newSelection;
+    file_put_contents($selectionFile, json_encode($allSelections, JSON_PRETTY_PRINT));
+
+    echo '<p>Voyage enregistré avec succès : vous pouvez y accéder</p>';
+    echo '<a href="../profile.php">Voir mes voyages</a>';
+
+
 } else {
     echo "<h2>Paiement refusé ❌</h2>";
     echo '<a href="../recap.php">Retour à la configuration du voyage</a>';

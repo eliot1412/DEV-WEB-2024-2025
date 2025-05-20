@@ -1,16 +1,21 @@
 <?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header('Location: log.php');
+    exit();
+}
 $volcanoData = json_decode(file_get_contents(__DIR__ . '/volcanoes.json'), true);
-$selectionFile = __DIR__ . '/selections.json';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'] ?? null;
-    $transport = $_POST['transport'] ?? '';
-    $hotel = $_POST['hotel'] ?? '';
-    $jours = (int) ($_POST['jours'] ?? 1);
-    $people = $_POST['people'] ?? 'one';
-    $activities = $_POST['activities'] ?? [];
-    $restaurant = $_POST['restaurant'] ?? '';
-    $car = $_POST['car'] ?? 'none';
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $id = $_GET['id'] ?? null;
+    $transport = $_GET['transport'] ?? '';
+    $hotel = $_GET['hotel'] ?? '';
+    $jours = (int) ($_GET['jours'] ?? 1);
+    $people = $_GET['people'] ?? 'one';
+    $activities = $_GET['activities'] ?? [];
+    $restaurant = $_GET['restaurant'] ?? '';
+    $car = $_GET['car'] ?? 'none';
 
     if ($id !== null && isset($volcanoData[$id])) {
         $selectedVolcano = $volcanoData[$id];
@@ -61,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         
         $newSelection = [
+            'user_email' => $_SESSION['email'],
             'volcano' => $selectedVolcano['name'],
             'transport' => $transport,
             'hotel' => $hotel,
@@ -72,13 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'timestamp' => date('Y-m-d H:i:s')
         ];
 
-        $allSelections = [];
-        if (file_exists($selectionFile)) {
-            $allSelections = json_decode(file_get_contents($selectionFile), true);
-        }
-
-        $allSelections[] = $newSelection;
-        file_put_contents($selectionFile, json_encode($allSelections, JSON_PRETTY_PRINT));
+        
     } else {
         die("Erreur : volcan non trouvé ou ID manquant.");
     }
@@ -138,6 +138,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="submit" value="Procéder au paiement">
     </form>
 </div>
+
+<?php 
+$_SESSION['jNewSelection'] = json_encode($newSelection);    
+?>
 
 </body>
 </html>

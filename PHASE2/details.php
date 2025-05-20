@@ -26,7 +26,7 @@ if (!$volcano) {
         <p><strong>Localisation :</strong> <?= $volcano['location'] ?></p>
         <p><strong>Prix de base :</strong> <?= $volcano['price'] ?></p>
 
-        <form action="recap.php" method="POST">
+        <form action="recap.php" method="GET">
             <h3>Choisissez vos activités :</h3>
             <div class="activities-grid">
                 <label>
