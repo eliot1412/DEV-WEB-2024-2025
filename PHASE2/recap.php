@@ -132,11 +132,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     <div class="recap-item"><strong>💰 Prix total estimé :</strong> <span style="color: gold; font-size: 1.3em;"><?= $total ?> €</span></div>
     <div class="recap-item">📌 Sauvegardé le : <?= date('d/m/Y à H:i') ?></div>
-    <form action="clickjourney_cybank/paiement.php" method="POST">
-        <input type="hidden" name="voyage_id" value="<?= $voyage['id'] ?>">
-        <input type="hidden" name="montant" value="<?= $total ?>">
-        <input type="submit" value="Procéder au paiement">
-    </form>
+    <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                <a href="javascript:history.go(-1)" style="text-decoration: none;">
+                    <button type="button" >← Retour</button>
+                </a>
+
+                <form action="clickjourney_cybank/paiement.php" method="POST">
+                    <input type="hidden" name="voyage_id" value="<?= $voyage['id'] ?>">
+                    <input type="hidden" name="montant" value="<?= $total ?>">
+                    <input type="submit" value="Procéder au paiement">
+                </form>
+            </div>
+
+    
 </div>
 
 <?php 
