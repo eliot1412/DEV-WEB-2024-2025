@@ -49,9 +49,11 @@ function calculerAge($date_naissance) {
     return $age->y;
 }
 
-function afficherUtilisateurs($utilisateurs) {
+function afficherUtilisateurs($utilisateurs, $offset = 0) {
     $html = "";
     foreach ($utilisateurs as $index => $user) {
+        $realIndex = $index + $offset;
+        
         $prenom = $user['prenom'] ?? '';
         $nom = $user['nom'] ?? '';
         $email = $user['email'] ?? '';
@@ -64,17 +66,17 @@ function afficherUtilisateurs($utilisateurs) {
         $html .= "<td>{$email}</td>";
         $html .= "<td>
             <form method='POST' action='modifier_utilisateur.php' style='display:inline;'>
-                <input type='hidden' name='id' value='{$index}'>
+                <input type='hidden' name='id' value='{$realIndex}'>
                 <button type='submit' title='Modifier'>
                     <img src='../pencil.jpg' alt='Modifier' style='width:20px; height:auto; vertical-align:middle;'>
                 </button>
             </form>
             <form method='POST' action='supprimer_utilisateur.php' style='display:inline;' onsubmit='return confirm(\"Supprimer cet utilisateur ?\");'>
-                <input type='hidden' name='id' value='{$index}'>
+                <input type='hidden' name='id' value='{$realIndex}'>
                 <button type='submit' title='Supprimer'>🗑️</button>
             </form>
             <form method='GET' action='voir_reservations.php' style='display:inline;'>
-                <input type='hidden' name='id' value='{$index}'>
+                <input type='hidden' name='id' value='{$realIndex}'>
                 <button type='submit' title='Voir les réservations'>📄</button>
             </form>
         </td>";
@@ -136,7 +138,7 @@ function afficherUtilisateurs($utilisateurs) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?= afficherUtilisateurs($paginatedUsers) ?>
+                        <?= afficherUtilisateurs($paginatedUsers, $offset) ?>
                     </tbody>
                 </table>
 
