@@ -5,19 +5,19 @@ if (!isset($_SESSION['email'])) {
     header('Location: ../accueil.php');
     exit();    
 }
-    $fichier = '../utilisateurs.json';
-    if (!file_exists($fichier)) {
-        echo "<p style='color:red; text-align:center;'>Erreur.</p>";
-        exit();
-    }
 
-    $utilisateurs = json_decode(file_get_contents($fichier), true);
+$fichier = '../utilisateurs.json';
+if (!file_exists($fichier)) {
+    echo "<p style='color:red; text-align:center;'>Erreur.</p>";
+    exit();
+}
+
+$utilisateurs = json_decode(file_get_contents($fichier), true);
 
 $isAdmin = false;
-
 foreach ($utilisateurs as $user) {
     if ($user['email'] === $_SESSION['email']) {
-        if (isset($user['admin']) && $user['admin'] == 1) {
+        if (isset($user['admin']) && $user['admin'] == "1") {
             $isAdmin = true;
         } else {
             header('Location: ../accueil.php');
@@ -27,15 +27,25 @@ foreach ($utilisateurs as $user) {
     }
 }
 
+
+function calculerAge($date_naissance) {
+    if (empty($date_naissance)) return "N/A";
+    
+    $naissance = new DateTime($date_naissance);
+    $aujourdhui = new DateTime();
+    $age = $aujourdhui->diff($naissance);
+    return $age->y;
+}
+
 function afficherUtilisateurs($utilisateurs) {
     $html = "";
     foreach ($utilisateurs as $user) {
-        // Utilisation directe sans encodage HTML
         $prenom = $user['prenom'] ?? '';
         $nom = $user['nom'] ?? '';
-        $id = $user['id'] ?? 'N/A';
-        $age = $user['age'] ?? 'N/A';
         $email = $user['email'] ?? '';
+        $date_naissance = $user['date_naissance'] ?? '';
+        $age = !empty($user['age']) ? $user['age'] : calculerAge($date_naissance);
+        $id = array_search($user, $utilisateurs); // Utilisation de l'index comme ID
 
         $html .= "<tr>";
         $html .= "<td>{$prenom} {$nom}</td>";
@@ -45,15 +55,17 @@ function afficherUtilisateurs($utilisateurs) {
         $html .= "<td>
             <form method='POST' action='modifier_utilisateur.php' style='display:inline;'>
                 <input type='hidden' name='id' value='{$id}'>
-                <button title='Modifier'>✏️</button>
+                <button type='submit' title='Modifier'>
+                    <img src='../pencil.jpg' alt='Modifier' style='width:20px; height:auto; vertical-align:middle;'>
+                </button>
             </form>
             <form method='POST' action='supprimer_utilisateur.php' style='display:inline;' onsubmit='return confirm(\"Supprimer cet utilisateur ?\");'>
                 <input type='hidden' name='id' value='{$id}'>
-                <button title='Supprimer'>🗑️</button>
+                <button type='submit' title='Supprimer'>🗑️</button>
             </form>
             <form method='GET' action='voir_reservations.php' style='display:inline;'>
                 <input type='hidden' name='id' value='{$id}'>
-                <button title='Voir les réservations'>📄</button>
+                <button type='submit' title='Voir les réservations'>📄</button>
             </form>
         </td>";
         $html .= "</tr>";
@@ -68,10 +80,8 @@ function afficherUtilisateurs($utilisateurs) {
     <link rel="stylesheet" href="../head.css">
     <link rel="stylesheet" href="users-res_info.css">
     <style>
-        .search-box {
-            padding: 8px;
-            width: 250px;
-            margin-right: 10px;
+        body, .Principal, .users-tool, .stat-box, table, th, td {
+            color: black !important;
         }
     </style>
 </head>
