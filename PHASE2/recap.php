@@ -1,21 +1,16 @@
 <?php
-session_start();
-if (!isset($_SESSION['email'])) {
-    header('Location: log.php');
-    exit();
-}
 $volcanoData = json_decode(file_get_contents(__DIR__ . '/volcanoes.json'), true);
-$selectionFile = __DIR__ . '/selections_' . $_SESSION['email'] . '.json';
+$selectionFile = __DIR__ . '/selections.json';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_SESSION['id'] ?? null;
-    $transport = $_SESSION['transport'] ?? '';
-    $hotel = $_SESSION['hotel'] ?? '';
-    $jours = (int) ($_SESSION['jours'] ?? 1);
-    $people = $_SESSION['people'] ?? 'one';
-    $activities = $_SESSION['activities'] ?? [];
-    $restaurant = $_SESSION['restaurant'] ?? '';
-    $car = $_SESSION['car'] ?? 'none';
+    $id = $_POST['id'] ?? null;
+    $transport = $_POST['transport'] ?? '';
+    $hotel = $_POST['hotel'] ?? '';
+    $jours = (int) ($_POST['jours'] ?? 1);
+    $people = $_POST['people'] ?? 'one';
+    $activities = $_POST['activities'] ?? [];
+    $restaurant = $_POST['restaurant'] ?? '';
+    $car = $_POST['car'] ?? 'none';
 
     if ($id !== null && isset($volcanoData[$id])) {
         $selectedVolcano = $volcanoData[$id];
@@ -78,9 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
 
         $allSelections = [];
-        if (!file_exists($selectionFile)) {
-            file_put_contents($selectionFile, json_encode([], JSON_PRETTY_PRINT));
-        }
         if (file_exists($selectionFile)) {
             $allSelections = json_decode(file_get_contents($selectionFile), true);
         }
@@ -149,4 +141,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
-
