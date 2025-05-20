@@ -9,8 +9,15 @@ if (!isset($_SESSION['email'])) {
 $selectionFile = __DIR__ . '/../selections.json';
 $selections = [];
 
+// Charge toutes les réservations
 if (file_exists($selectionFile)) {
-    $selections = json_decode(file_get_contents($selectionFile), true);
+    $allSelections = json_decode(file_get_contents($selectionFile), true);
+    
+    foreach ($allSelections as $reservation) {
+        if (isset($reservation['user_email']) && $reservation['user_email'] === $_SESSION['email']) {
+            $selections[] = $reservation;
+        }
+    }
 }
 ?>
 
