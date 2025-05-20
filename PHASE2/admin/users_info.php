@@ -27,6 +27,18 @@ foreach ($utilisateurs as $user) {
     }
 }
 
+// Pagination
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$usersPerPage = 10;
+$totalUsers = count($utilisateurs);
+$totalPages = ceil($totalUsers / $usersPerPage);
+
+// Correction si page invalide
+if ($page < 1) $page = 1;
+if ($page > $totalPages) $page = $totalPages;
+
+$offset = ($page - 1) * $usersPerPage;
+$paginatedUsers = array_slice($utilisateurs, $offset, $usersPerPage);
 
 function calculerAge($date_naissance) {
     if (empty($date_naissance)) return "N/A";
@@ -39,32 +51,30 @@ function calculerAge($date_naissance) {
 
 function afficherUtilisateurs($utilisateurs) {
     $html = "";
-    foreach ($utilisateurs as $user) {
+    foreach ($utilisateurs as $index => $user) {
         $prenom = $user['prenom'] ?? '';
         $nom = $user['nom'] ?? '';
         $email = $user['email'] ?? '';
         $date_naissance = $user['date_naissance'] ?? '';
         $age = !empty($user['age']) ? $user['age'] : calculerAge($date_naissance);
-        $id = array_search($user, $utilisateurs); // Utilisation de l'index comme ID
 
         $html .= "<tr>";
         $html .= "<td>{$prenom} {$nom}</td>";
-        $html .= "<td>{$id}</td>";
         $html .= "<td>{$age}</td>";
         $html .= "<td>{$email}</td>";
         $html .= "<td>
             <form method='POST' action='modifier_utilisateur.php' style='display:inline;'>
-                <input type='hidden' name='id' value='{$id}'>
+                <input type='hidden' name='id' value='{$index}'>
                 <button type='submit' title='Modifier'>
                     <img src='../pencil.jpg' alt='Modifier' style='width:20px; height:auto; vertical-align:middle;'>
                 </button>
             </form>
             <form method='POST' action='supprimer_utilisateur.php' style='display:inline;' onsubmit='return confirm(\"Supprimer cet utilisateur ?\");'>
-                <input type='hidden' name='id' value='{$id}'>
+                <input type='hidden' name='id' value='{$index}'>
                 <button type='submit' title='Supprimer'>🗑️</button>
             </form>
             <form method='GET' action='voir_reservations.php' style='display:inline;'>
-                <input type='hidden' name='id' value='{$id}'>
+                <input type='hidden' name='id' value='{$index}'>
                 <button type='submit' title='Voir les réservations'>📄</button>
             </form>
         </td>";
@@ -79,11 +89,7 @@ function afficherUtilisateurs($utilisateurs) {
     <title>Gestion des utilisateurs</title>
     <link rel="stylesheet" href="../head.css">
     <link rel="stylesheet" href="users-res_info.css">
-    <style>
-        body, .Principal, .users-tool, .stat-box, table, th, td {
-            color: black !important;
-        }
-    </style>
+
 </head>
 <body>
     <div class="head">
@@ -111,7 +117,7 @@ function afficherUtilisateurs($utilisateurs) {
         <div class="Principal">
             <div class="stat-box">
                 <h2>Utilisateurs</h2>
-                <p>📌 <?= count($utilisateurs) ?> inscrits</p>
+                <p>📌 <?= $totalUsers ?> inscrits (Page <?= $page ?>/<?= $totalPages ?>)</p>
             </div>
 
             <div class="users-tool">
@@ -124,16 +130,40 @@ function afficherUtilisateurs($utilisateurs) {
                     <thead>
                         <tr>
                             <th>Nom-Prénom</th>
-                            <th>ID utilisateur</th>
                             <th>Âge</th>
                             <th>Email</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?= afficherUtilisateurs($utilisateurs) ?>
+                        <?= afficherUtilisateurs($paginatedUsers) ?>
                     </tbody>
                 </table>
+
+                <?php if ($totalPages > 1): ?>
+                <div class="pagination">
+                    <?php if ($page > 1): ?>
+                        <a href="?page=1">« Première</a>
+                        <a href="?page=<?= $page - 1 ?>">‹ Précédente</a>
+                    <?php endif; ?>
+
+                    <?php
+                    $start = max(1, $page - 2);
+                    $end = min($totalPages, $page + 2);
+                    
+                    if ($start > 1) echo '<span>...</span>';
+                    for ($i = $start; $i <= $end; $i++): ?>
+                        <a href="?page=<?= $i ?>" <?= $i == $page ? 'class="active"' : '' ?>><?= $i ?></a>
+                    <?php endfor;
+                    if ($end < $totalPages) echo '<span>...</span>';
+                    ?>
+
+                    <?php if ($page < $totalPages): ?>
+                        <a href="?page=<?= $page + 1 ?>">Suivante ›</a>
+                        <a href="?page=<?= $totalPages ?>">Dernière »</a>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
