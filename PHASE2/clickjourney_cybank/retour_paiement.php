@@ -53,12 +53,10 @@ if ($statut === "accepted") {
     $allSelections[] = $newSelection;
     file_put_contents($selectionFile, json_encode($allSelections, JSON_PRETTY_PRINT));
 
-    echo '<p>Voyage enregistré avec succès : vous pouvez y accéder</p>';
-    echo '<a href="../profile.php">Voir mes voyages</a>';
 
 
 } else {
     echo "<h2>Paiement refusé ❌</h2>";
-    echo '<a href="../recap.php">Retour à la configuration du voyage</a>';
+    echo '<a href="javascript:history.go(-2)">Retour à la page paiement</a>';
 }
 ?>
