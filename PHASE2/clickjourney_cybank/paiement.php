@@ -21,8 +21,8 @@ $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur .
   <meta charset="UTF-8">
   <title>Paiement</title>
   <link rel="stylesheet" href="../head.css">
-<link rel="stylesheet" href="../details.css">
-<link rel="stylesheet" href="paiement.css">
+  <link rel="stylesheet" href="paiement.css">
+
 </head>
 <body>
   <!-- Header -->
@@ -43,6 +43,16 @@ $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur .
 
   <!-- Contenu principal -->
   <div class="Centre">
+
+    <div class="titre">
+      <p><?= $_POST['selectedVolcano'] ?></p>
+    </div>
+    
+    <div class="infoVoyage">
+      <p> Durée du voyage : <?=$_POST['dates'] ?> jours</p>
+      <p> Montant du voyage : <?=$_POST['montant'] ?> €</p>
+    </div>
+
     <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
       <input type="hidden" name="transaction" value="<?= $transaction ?>">
       <input type="hidden" name="montant"     value="<?= $montant ?>">
