@@ -1,0 +1,81 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenu principal */
+.Centre {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vh;
+    margin: 50px auto;
+    background-color: rgba(109, 7, 26, 0.85);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.titreVoyage p {
+    font-size: 2em;
+    color: rgba(229, 197, 39, 0.9);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.infoVoyage p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Formulaire de paiement */
+form {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.button {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    background-color: #c40d3b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgba(229, 197, 39, 0.9);
+    color: #6d071a;
+    transform: scale(0.95);
+}
+
+/* Footer */
+.tail {
+    display: flex;
+    justify-content: center;
+    background-color: #6d071a;
+    padding: 10px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.tail p {
+    color: white;
+    margin: 0 10px;
+}
