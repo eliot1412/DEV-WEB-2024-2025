@@ -39,6 +39,7 @@ if (empty($volcanoData)) {
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="results.css">
     <link rel="stylesheet" type="text/css" href="choice.css">
+    <script src="js/theme.js" defer></script>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -55,6 +56,7 @@ if (empty($volcanoData)) {
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
+                <li><a href="panier.php">Panier</a></li>
             </ul>
         </div>
         <a href="profile.php">
