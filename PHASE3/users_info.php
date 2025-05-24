@@ -10,6 +10,7 @@ if (!isset($_SESSION['email'])) {
     <title>Gestions utilisateurs</title>
     <link rel="stylesheet" type="text/css" href="../head.css">
     <link rel="stylesheet" type="text/css" href="users-res_info.css">
+    <script src="js/theme.js" defer></script>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -29,6 +30,7 @@ if (!isset($_SESSION['email'])) {
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
+                <li><a href="panier.php">Panier</a></li>
 
             </ul>
 
