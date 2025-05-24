@@ -12,6 +12,7 @@ if (isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="reglog.css">
+    <script src="js/hide.js" defer></script>
 </head>
 <body>
 
@@ -52,12 +53,13 @@ if (isset($_SESSION['email'])) {
     <form action="log.php" method="post">
         <div class="input-group">
             <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required/>
-        </div>
-
-        <div class="input-group">
-            <label for="password">Mot de passe :</label>
-            <input type="password" name="password" required/>
+            <input type="email" id="email" name="email"/>
+        
+            
+                <label for="password">Mot de passe :</label>
+                <div class="password">
+                <input type="password" name="password" id="password"/><img id="imgpassword" src="show.jpg" alt="Afficher ou cacher mdp" onclick="hide()">
+                </div>
         </div>
 
         <div class="button-group">

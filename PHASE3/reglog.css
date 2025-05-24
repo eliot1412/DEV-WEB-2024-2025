@@ -48,6 +48,8 @@ body {
     background-position: center;
     align-items: center;
 }
+
+
     
     
     
@@ -64,7 +66,38 @@ body {
 
 
 }
-    
+
+.password {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+.password img{
+    position: absolute;
+    width: 20px;  
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    transform: translateX(1500%);
+    cursor: pointer;
+}
+
+.password input {
+    flex-grow: 1;          
+    padding: 5px;
+    border-radius: 4px;
+
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
     
 .input-group label {
     display: block;
@@ -77,7 +110,10 @@ body {
     box-sizing: border-box;
     border: 1px solid #535353 ;
     border-radius: 4px;
-    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+
 }
 
 .button-group button {
@@ -105,12 +141,6 @@ body {
 #log{
     padding: 5%;
 }
-
-
-    /*Tail part*/
-
-
-
 
 
 
