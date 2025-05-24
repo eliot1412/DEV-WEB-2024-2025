@@ -1,0 +1,155 @@
+.tail {
+    display: flex;
+    justify-content: center;
+    background-color: #6d071a;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.tail p {
+    color: white;
+}
+
+.table {
+    background-image: url(../VolcanBack.jpg);
+    display: flex;
+    gap: 20px;
+    height: 90.5ex;
+}
+
+.Principal {
+    background-color: #d1d1d100;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    gap: 20px;
+    min-height: 75vh;
+    border-radius: 10px;
+    font-size: large;
+    color: #000000;
+}
+
+.research-users {
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.search-box {
+    width: 300px;
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+    scale: 90%;
+}
+
+.stat-box,
+.users-tool {
+    margin-left: 1em;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    width: 35em;
+    margin: 1em;
+    background-color: #6d071a81;
+}
+
+.stat-box h2,
+.stat-box p,
+.users-tool table {
+    margin-left: 1em;
+}
+
+.side {
+    background-color: #6d071a;
+    width: 10em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    display: grid;
+}
+
+.side button {
+    margin-top: 33px;
+    margin-left: 1.1em;
+    margin-right: 1em;
+    background-color: #d1d1d1;
+    max-width: 80%;
+    max-height: 90px;
+    border-radius: 10px;
+}
+
+.side button.selected {
+    background-color: #bdbdbd7e;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.inline-form input {
+    margin-right: 3px;
+    font-size: small;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: auto;
+}
+
+.flash-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #6d071a;
+}
+
+.pagination a.active {
+    background-color: #6d071a;
+    color: white;
+    border: 1px solid #6d071a;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
