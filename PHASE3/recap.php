@@ -138,6 +138,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 </a>
 
                 <form action="clickjourney_cybank/paiement.php" method="POST">
+                    <input type="hidden" name="selectedVolcano" value="<?= $selectedVolcano['name'] ?>">
+                    <input type="hidden" name="dates" value="<?= $jours?>">
                     <input type="hidden" name="voyage_id" value="<?= $voyage['id'] ?>">
                     <input type="hidden" name="montant" value="<?= $total ?>">
                     <input type="submit" value="Procéder au paiement">
