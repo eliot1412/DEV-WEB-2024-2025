@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="accueil.css">
-    <script src="theme.js" defer></script>
+    <script src="js/theme.js" defer></script>
 </head>
 
 <body>
