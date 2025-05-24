@@ -50,6 +50,7 @@ $fichier = 'utilisateurs.json';
     <title>Page de profile</title>
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="profile.css">
+    <script src="js/theme.js" defer></script>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -69,6 +70,7 @@ $fichier = 'utilisateurs.json';
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
+                <li><a href="panier.php">Panier</a></li>
                 <?php if ($isadmin === true) { ?>
                 <li><a href="admin.php">Page administrateur</a></li>
                 <?php } ?>
