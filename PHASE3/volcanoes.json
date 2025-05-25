@@ -6,7 +6,9 @@
         "rating": 5,
         "price": "€450",
         "description": "Découvrez l'Etna, le plus haut volcan actif d'Europe, avec des guides experts en vulcanologie.",
-        "region": "europe"
+        "region": "europe",
+        "start_date": "2025-05-15",
+        "end_date": "2025-06-15"
     },
     {
         "name": "Aventure au Piton de la Fournaise",
@@ -15,7 +17,9 @@
         "rating": 4,
         "price": "€600",
         "description": "Randonnée vers l'un des volcans les plus actifs au monde, situé sur une île tropicale.",
-        "region": "oceanie"
+        "region": "oceanie",
+        "start_date": "2025-05-01",
+        "end_date": "2025-09-30"
     },
     {
         "name": "Ascension du Kilimandjaro",
@@ -24,7 +28,9 @@
         "rating": 5,
         "price": "€1200",
         "description": "Gravissez ce volcan endormi, point culminant de l'Afrique, pour une expérience inoubliable.",
-        "region": "afrique"
+        "region": "afrique",
+        "start_date": "2025-06-01",
+        "end_date": "2025-09-30"
     },
     {
         "name": "Exploration du Yellowstone",
@@ -33,7 +39,9 @@
         "rating": 4,
         "price": "€800",
         "description": "Découvrez le supervolcan de Yellowstone et ses phénomènes géothermiques uniques.",
-        "region": "amerique"
+        "region": "amerique",
+        "start_date": "2025-06-01",
+        "end_date": "2025-08-31"
     },
     {
         "name": "Visite du Mont Fuji",
@@ -42,7 +50,9 @@
         "rating": 5,
         "price": "€950",
         "description": "L'emblématique volcan du Japon, une ascension spirituelle et physique.",
-        "region": "asie"
+        "region": "asie",
+        "start_date": "2025-07-01",
+        "end_date": "2025-09-10"
     },
     {
         "name": "Randonnée du Stromboli",
@@ -51,7 +61,9 @@
         "rating": 5,
         "price": "€550",
         "description": "Observez le \"phare de la Méditerranée\" et ses éruptions quasi continues.",
-        "region": "europe"
+        "region": "europe",
+        "start_date": "2025-06-01",
+        "end_date": "2025-09-30"
     },
     {
         "name": "Excursion au Vésuve",
@@ -60,7 +72,9 @@
         "rating": 4,
         "price": "€350",
         "description": "Découvrez le célèbre volcan qui a enseveli Pompéi, avec vue sur la baie de Naples.",
-        "region": "europe"
+        "region": "europe",
+        "start_date": "2025-04-01",
+        "end_date": "2025-05-31"
     },
     {
         "name": "Aventure au Volcan Arenal",
@@ -69,7 +83,9 @@
         "rating": 4,
         "price": "€700",
         "description": "Randonnée autour de ce volcan parfaitement conique et baignade dans ses sources chaudes.",
-        "region": "amerique"
+        "region": "amerique",
+        "start_date": "2025-01-05",
+        "end_date": "2025-04-30"
     },
     {
         "name": "Expedition au Kilauea",
@@ -78,7 +94,9 @@
         "rating": 5,
         "price": "€1100",
         "description": "Observez la lave en fusion de l'un des volcans les plus actifs de la planète.",
-        "region": "oceanie"
+        "region": "oceanie",
+        "start_date": "2025-05-01",
+        "end_date": "2025-10-31"
     },
     {
         "name": "Ascension du Cotopaxi",
@@ -87,7 +105,9 @@
         "rating": 5,
         "price": "€850",
         "description": "Gravissez ce volcan andin couvert de glaciers pour une expérience alpine unique.",
-        "region": "amerique"
+        "region": "amerique",
+        "start_date": "2025-06-01",
+        "end_date": "2025-09-30"
     },
     {
         "name": "Exploration des Volcans d'Auvergne",
@@ -96,7 +116,9 @@
         "rating": 3,
         "price": "€250",
         "description": "Découverte des volcans endormis de la chaîne des Puys, classée à l'UNESCO.",
-        "region": "europe"
+        "region": "europe",
+        "start_date": "2025-06-01",
+        "end_date": "2025-09-30"
     },
     {
         "name": "Safari au Ngorongoro",
@@ -105,7 +127,9 @@
         "rating": 4,
         "price": "€1300",
         "description": "Combinaison unique de safari et de volcan dans cette caldeira géante peuplée d'animaux sauvages.",
-        "region": "afrique"
+        "region": "afrique",
+        "start_date": "2025-06-01",
+        "end_date": "2025-10-31"
     },
     {
         "name": "Randonnée au Teide",
@@ -114,7 +138,9 @@
         "rating": 4,
         "price": "€500",
         "description": "Ascension du point culminant de l'Espagne, volcan aux paysages lunaires.",
-        "region": "europe"
+        "region": "europe",
+        "start_date": "2025-04-01",
+        "end_date": "2025-06-30"
     },
     {
         "name": "Croisière aux Volcans du Kamtchatka",
@@ -123,7 +149,9 @@
         "rating": 5,
         "price": "€1800",
         "description": "Expédition maritime vers ces volcans isolés et sauvages de l'Extrême-Orient russe.",
-        "region": "asie"
+        "region": "asie",
+        "start_date": "2025-07-01",
+        "end_date": "2025-08-31"
     },
     {
         "name": "Trek au Villarrica",
@@ -132,6 +160,8 @@
         "rating": 4,
         "price": "€750",
         "description": "Ascension d'un volcan actif avec lac de lave visible, culminant à 2847 mètres.",
-        "region": "amerique"
+        "region": "amerique",
+        "start_date": "2025-12-01",
+        "end_date": "2026-03-31"
     }
 ]
