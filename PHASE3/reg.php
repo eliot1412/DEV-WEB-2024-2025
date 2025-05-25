@@ -12,6 +12,10 @@ if (isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="reglog.css">
+    <script src="js/theme.js" defer></script>
+    <script src="js/hide.js" defer></script>
+    <script src="js/validatereg.js" defer></script>
+    
 </head>
 <body>
 
@@ -31,6 +35,7 @@ if (isset($_SESSION['email'])) {
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
+                <li><a href="panier.php">Panier</a></li>
 
             </ul>
 
@@ -68,12 +73,18 @@ if (isset($_SESSION['email'])) {
             </div>
             <div class="input-group">
                 <label for="password1">Mot de passe :</label>
-                <input type="password" id="password1" name="password1" required/>
+                <div class="password">
+                <input type="password" name="password1" id="password1"/><img id="imgpassword1" src="show.jpg" alt="Afficher ou cacher mdp" onclick="hide('password1','imgpassword1')">
+                </div>
             </div>
             <div class="input-group">
                 <label for="password2">Confirmer votre mot de passe :</label>
-                <input type="password" id="password2" name="password2" required/>
+                <div class="password">
+                <input type="password" name="password2" id="password2"/><img id="imgpassword2" src="show.jpg" alt="Afficher ou cacher mdp" onclick="hide('password2','imgpassword2')">
+                </div>
             </div>
+
+            
 
             <div class="button-group">
                 <button type="submit" name="submit">Envoyer</button>
@@ -93,9 +104,6 @@ if (isset($_POST['submit'])) {
     $motdepasse1 = $_POST['password1'];
     $motdepasse2 = $_POST['password2'];
 
-    if ($motdepasse1 !== $motdepasse2) {
-        echo "<p style='color:red; text-align:center;'>Les mots de passe ne correspondent pas.</p>";
-    } else {
 
         $fichier_utilisateurs = 'utilisateurs.json';
         $utilisateurs = file_exists($fichier_utilisateurs) ? json_decode(file_get_contents($fichier_utilisateurs), true) : [];
@@ -105,9 +113,10 @@ if (isset($_POST['submit'])) {
             if ($u['email'] === $email) {
                 echo "<p style='color:red; text-align:center;'>Cet email est déjà utilisé.</p>";
                 $emailExiste = true;
+                break;
             }
-            break;
-        }   
+            
+        }
 
         if(!$emailExiste){
             $nouvel_utilisateur = array(
@@ -132,8 +141,9 @@ if (isset($_POST['submit'])) {
         }
         
     }
-}
+
 ?>
+<div id="error-message" style="color: orange; text-align: center; margin-top: 10px;"></div>
 
     </div>
 </div>

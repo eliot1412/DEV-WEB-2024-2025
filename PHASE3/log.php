@@ -12,7 +12,10 @@ if (isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="reglog.css">
+    <script src="js/theme.js" defer></script>
     <script src="js/hide.js" defer></script>
+    <script src="js/validatelog.js" defer></script>
+    
 </head>
 <body>
 
@@ -32,6 +35,7 @@ if (isset($_SESSION['email'])) {
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
+                <li><a href="panier.php">Panier</a></li>
 
             </ul>
 
@@ -58,7 +62,7 @@ if (isset($_SESSION['email'])) {
             
                 <label for="password">Mot de passe :</label>
                 <div class="password">
-                <input type="password" name="password" id="password"/><img id="imgpassword" src="show.jpg" alt="Afficher ou cacher mdp" onclick="hide()">
+                <input type="password" name="password" id="password"/><img id="imgpassword" src="show.jpg" alt="Afficher ou cacher mdp" onclick="hide('password','imgpassword')">
                 </div>
         </div>
 
@@ -101,8 +105,10 @@ if (isset($_POST['submit'])) {
     if (!$email_trouve) {
         echo "<p style='color:red; text-align:center;'>Email introuvable.</p>";
     }
+    
 }
 ?>
+    <div id="error-message" style="color: orange; text-align: center; margin-top: 10px;"></div>
 </div>
 </div>
 
