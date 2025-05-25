@@ -152,7 +152,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </div>
 
 <?php 
-$_SESSION['jNewSelection'] = json_encode($newSelection);    
+$_SESSION['jNewSelection'] = json_encode($newSelection);   
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+}
+array_push($_SESSION['panier'], $newSelection);
 ?>
 
 </body>
