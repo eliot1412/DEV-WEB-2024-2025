@@ -22,7 +22,7 @@ $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur .
   <title>Paiement</title>
   <link rel="stylesheet" href="../head.css">
   <link rel="stylesheet" href="paiement.css">
-  <script src="js/theme.js" defer=""></script>
+  <script src="../js/theme.js" defer=""></script>
 
 </head>
 <body>
