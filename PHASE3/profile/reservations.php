@@ -5,7 +5,7 @@ if (!isset($_SESSION['email'])) {
     header('Location: ../log.php');
     exit();
 }
-
+$isadmin=false;
 $selectionFile = __DIR__ . '/../selections.json';
 $selections = [];
 
