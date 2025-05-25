@@ -53,9 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer'])) {
             <?php $totalGeneral = 0; ?>
             <?php foreach ($_SESSION['panier'] as $index => $voyage): ?>
                 <div class="voyage-item">
-                    <h2><?= htmlspecialchars($voyage['volcano']) ?></h2>
-                    <p><strong>Transport :</strong> <?= htmlspecialchars($voyage['transport']) ?></p>
-                    <p><strong>Hébergement :</strong> <?= htmlspecialchars($voyage['hotel']) ?> (<?= $voyage['jours'] ?> jour(s))</p>
+                    <h2><?= $voyage['volcano'] ?></h2>
+                    <p><strong>Transport :</strong> <?= $voyage['transport'] ?></p>
+                    <p><strong>Hébergement :</strong> <?= $voyage['hotel'] ?> (<?= $voyage['jours'] ?> jour(s))</p>
                     <p><strong>Activités :</strong> <?= implode(', ', $voyage['activities']) ?></p>
                     <p><strong>Prix :</strong> <span class="prix"><?= $voyage['total'] ?> €</span></p>
                     
