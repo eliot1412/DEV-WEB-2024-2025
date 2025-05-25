@@ -1,18 +1,12 @@
 // results.js
-// Tri dynamique des résultats de voyages sans rechargement ni requête HTTP
-
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Récupération du conteneur des résultats
   const container = document.querySelector('.results-container');
-  if (!container) {
-    console.error('🛑 .results-container introuvable');
-    return;
-  }
+  if (!container) return console.error('Container introuvable');
 
-  // 2. Snapshot des éléments de résultats (chaque .result-item doit avoir les data-attrs)
+  // 1) Récupère tous les items
   const items = Array.from(container.querySelectorAll('.result-item'));
 
-  // 3. Création de la barre de tri
+  // 2) Injecte la barre de tri
   const sortSection = document.createElement('div');
   sortSection.className = 'sort-section';
   sortSection.innerHTML = `
@@ -22,52 +16,45 @@ document.addEventListener('DOMContentLoaded', () => {
       <button class="sort-btn" data-sort="price">Prix</button>
       <button class="sort-btn" data-sort="duration">Durée</button>
       <button class="sort-btn" data-sort="rating">Note</button>
+      <button class="sort-btn" data-sort="alpha">A–Z</button>
     </div>
   `;
   container.parentNode.insertBefore(sortSection, container);
 
-  // 4. Fonctions utilitaires de parsing
-  const parsePrice = txt => parseFloat(txt.replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
-  const parseDate  = iso => {
-    const d = new Date(iso);
-    return isNaN(d) ? 0 : d.getTime();
-  };
-  const parseDuration = txt => {
-    const m = txt.match(/(\d+)/);
-    return m ? parseInt(m[1], 10) : 0;
-  };
-  const parseRating = txt => parseFloat(txt) || 0;
+  // 3) Fonctions utilitaires de parsing
+  const parseDate = s => new Date(s).getTime() || 0;
+  const parseNum  = s => parseFloat(s) || 0;
 
-  // 5. Comparateurs selon critère
+  // 4) Comparateurs
   const comparators = {
-    date:     (a, b) => parseDate(a.dataset.date)   - parseDate(b.dataset.date),
-    price:    (a, b) => parsePrice(a.dataset.price) - parsePrice(b.dataset.price),
-    duration: (a, b) => parseDuration(a.dataset.duration) - parseDuration(b.dataset.duration),
-    rating:   (a, b) => parseRating(a.dataset.rating)  - parseRating(b.dataset.rating)
+    date:     (a, b) => parseDate(a.dataset.date)       - parseDate(b.dataset.date),
+    price:    (a, b) => parseNum(a.dataset.price)       - parseNum(b.dataset.price),
+    duration: (a, b) => parseNum(a.dataset.duration)    - parseNum(b.dataset.duration),
+    rating:   (a, b) => parseNum(a.dataset.rating)      - parseNum(b.dataset.rating),
+    alpha:    (a, b) => {
+      const nameA = a.querySelector('.volcano-name').textContent.trim().toLowerCase();
+      const nameB = b.querySelector('.volcano-name').textContent.trim().toLowerCase();
+      return nameA.localeCompare(nameB);
+    }
   };
 
-  // 6. Gestion du click sur les boutons de tri
+  // 5) Écouteurs sur les boutons de tri
   sortSection.querySelectorAll('.sort-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      // Visuel du bouton actif
+      // active state
       sortSection.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      
-      // Tri des items (on prend le container <div> contenant les data-attrs)
-      const crit = btn.dataset.sort;
-      const sorted = items.slice().sort((a, b) => {
-        const cardA = a;
-        const cardB = b;
-        return comparators[crit](cardA, cardB);
-      });
 
-      // Ré-injection dans le DOM
+      // tri proprement dit
+      const crit   = btn.dataset.sort;
+      const sorted = items.slice().sort((a, b) => comparators[crit](a, b));
       sorted.forEach(el => container.appendChild(el));
     });
   });
+  // tri par défaut sur la date
+  sortSection.querySelector('[data-sort="date"]').click();
 
-  // 7. Optionnel : déclencher un tri par défaut (ex. date)
-  const defaultBtn = sortSection.querySelector('[data-sort="date"]');
-  if (defaultBtn) defaultBtn.click();
+
+  // 6) (re)lancez ici votre code de filtre par continent si besoin
+  document.querySelector('.filter-btn[data-filter="all"]').click();
 });
-
