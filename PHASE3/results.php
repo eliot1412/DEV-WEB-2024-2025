@@ -7,9 +7,9 @@ $volcanoData = [];
 
 // 3. Chargement du fichier JSON
 if (file_exists($jsonFile)) {
-    $jsonContent = file_get_contents($jsonFile);
-    $volcanoData = json_decode($jsonContent, true);
-    
+    $jsonContent  = file_get_contents($jsonFile);
+    $volcanoData  = json_decode($jsonContent, true);
+
     // Vérification des erreurs JSON
     if (json_last_error() !== JSON_ERROR_NONE) {
         die("Erreur dans le fichier JSON : " . json_last_error_msg());
@@ -19,13 +19,13 @@ if (file_exists($jsonFile)) {
 if (empty($volcanoData)) {
     $volcanoData = [
         [
-            "name" => "Volcan par défaut",
-            "location" => "Localisation inconnue",
-            "image" => "default.jpg",
-            "rating" => 4,
-            "price" => "€99",
+            "name"        => "Volcan par défaut",
+            "location"    => "Localisation inconnue",
+            "image"       => "default.jpg",
+            "rating"      => 4,
+            "price"       => "€99",
             "description" => "Description par défaut",
-            "region" => "europe"
+            "region"      => "europe"
         ]
     ];
 }
@@ -33,20 +33,22 @@ if (empty($volcanoData)) {
 
 <!DOCTYPE html>
 <html lang="fr">
-<title>Résultats de Recherche - Voyages Volcaniques</title>
 <head>
-    <link rel="stylesheet" type="text/css" href="head.css">
-    <link rel="stylesheet" type="text/css" href="results.css">
-    <link rel="stylesheet" type="text/css" href="choice.css">
-    <script src="results.js"></script>
     <meta charset="UTF-8">
+    <title>Résultats de Recherche - Voyages Volcaniques</title>
+    <link rel="stylesheet" href="head.css" type="text/css">
+    <link rel="stylesheet" href="results.css" type="text/css">
+    <link rel="stylesheet" href="choice.css" type="text/css">
+    <script src="results.js" defer></script>
 </head>
 <body>
     <div class="head">
         <ul>
-            <a href="accueil.php">
-                <img src="VolcanFly.jpg" alt="Accueil">
-            </a>
+            <li>
+                <a href="accueil.php">
+                    <img src="VolcanFly.jpg" alt="Accueil">
+                </a>
+            </li>
         </ul>
         <div class="headers">
             <ul>
@@ -58,62 +60,78 @@ if (empty($volcanoData)) {
             </ul>
         </div>
         <a href="profile.php">
-            <img src="pp.jpg" alt="profile">
+            <img src="pp.jpg" alt="Profil">
         </a>
     </div>
-    
+
     <div class="contenu">
         <h1>Résultats de Recherche</h1>
-        
-        <div class="filter-section">
-            <h3>Filtrer par :</h3>
-            <div class="filter-options">
-                <button class="filter-btn" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="europe">Europe</button>
-                <button class="filter-btn" data-filter="amerique">Amérique</button>
-                <button class="filter-btn" data-filter="asie">Asie</button>
-                <button class="filter-btn" data-filter="oceanie">Océanie</button>
-            </div>
-        </div>
-        
+
         <div class="results-container" id="results-container">
-        <?php foreach ($volcanoData as $index => $volcano): ?>
-    <a href="details.php?id=<?= $index ?>" class="volcano-link">
-        <div class="volcano-card" data-region="<?= $volcano['region'] ?? '' ?>" style="animation-delay: <?= $index * 0.1 ?>s">
-            <img src="<?= $volcano['image'] ?? 'default.jpg' ?>"
-                 alt="<?= $volcano['name'] ?? '' ?>"
-                 class="volcano-image">
-                 <div class="volcano-info"
-     data-start-date="<?= $volcano['start_date'] ?? '', ENT_QUOTES ?>"
-     data-end-date  ="<?= $volcano['end_date']   ?? '', ENT_QUOTES ?>">
-    <h3 class="volcano-name"><?= $volcano['name'] ?? '' ?></h3>
-    <p class="volcano-location"><?= $volcano['location'] ?? '' ?></p>
-    <div class="volcano-rating">
-      <?= str_repeat('★', (int)($volcano['rating'] ?? 0)) ?>
-    </div>
-    <p class="volcano-price">À partir de <?= $volcano['price'] ?? '' ?></p>
-    <p class="volcano-description"><?= $volcano['description'] ?? '' ?></p>
-
-    <p class="volcano-period">
-      <strong>Période :</strong>
-      du <?= date('d/m/Y', strtotime($volcano['start_date'] ?? '')) ?>
-      au <?= date('d/m/Y', strtotime($volcano['end_date']   ?? '')) ?>
-    </p>
-</div>
-
+            <?php foreach ($volcanoData as $index => $volcano): ?>
+                <?php
+                    // calculs pour le tri
+                    $startTs   = strtotime($volcano['start_date'] ?? '');
+                    $endTs     = strtotime($volcano['end_date']   ?? '');
+                    $duration  = ($startTs && $endTs) ? round(($endTs - $startTs) / 86400) : 0;
+                    $priceNum  = floatval(str_replace(['€',' '], '', $volcano['price'] ?? '0'));
+                    $ratingNum = (int)($volcano['rating'] ?? 0);
+                ?>
+                <a
+                    href="details.php?id=<?= $index ?>"
+                    class="volcano-link result-item"
+                    data-date="<?= $volcano['start_date'] ?? '' ?>"
+                    data-price="<?= $priceNum ?>"
+                    data-duration="<?= $duration ?>"
+                    data-rating="<?= $ratingNum ?>"
+                >
+                    <div
+                        class="volcano-card"
+                        data-region="<?= $volcano['region'] ?? '' ?>"
+                        style="animation-delay: <?= $index * 0.1 ?>s"
+                    >
+                        <img
+                            src="<?= $volcano['image'] ?? 'default.jpg' ?>"
+                            alt="<?= $volcano['name']  ?? '' ?>"
+                            class="volcano-image"
+                        >
+                        <div
+                            class="volcano-info"
+                            data-start-date="<?= $volcano['start_date'] ?? '' ?>"
+                            data-end-date="<?= $volcano['end_date']   ?? '' ?>"
+                        >
+                            <h3 class="volcano-name">
+                                <?= $volcano['name'] ?? '' ?>
+                            </h3>
+                            <p class="volcano-location">
+                                <?= $volcano['location'] ?? '' ?>
+                            </p>
+                            <div class="volcano-rating">
+                                <?= str_repeat('★', $ratingNum) ?>
+                            </div>
+                            <p class="volcano-price">
+                                À partir de <?= $volcano['price'] ?? '' ?>
+                            </p>
+                            <p class="volcano-description">
+                                <?= $volcano['description'] ?? '' ?>
+                            </p>
+                            <p class="volcano-period">
+                                <strong>Période :</strong>
+                                du <?= date('d/m/Y', strtotime($volcano['start_date'] ?? '')) ?>
+                                au <?= date('d/m/Y', strtotime($volcano['end_date']   ?? '')) ?>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <?php endforeach; ?>
         </div>
-    </a>
-<?php endforeach; ?>
-        </div>
     </div>
-    
+
     <div class="tail">
         <a href="accueil.html">
-            <p>Acceuil</p>
+            <p>Accueil</p>
         </a>
-        <p>|S.A.V|...</p>
+        <p>| S.A.V | ...</p>
     </div>
-   
-   
 </body>
 </html>
