@@ -44,6 +44,8 @@ if (file_exists($selectionFile)) {
     <title>Mes Réservations</title>
     <link rel="stylesheet" href="../head.css">
     <link rel="stylesheet" href="../profile.css">
+    <script src="../js/theme.js" defer></script>
+
 </head>
 <body>
 
@@ -56,6 +58,8 @@ if (file_exists($selectionFile)) {
             <li><a href="../log.php">Connexion</a></li>
             <li><a href="../choice.php">Voyages</a></li>
             <li><a href="../aides.php">Aides</a></li>
+            <li><a href="../panier.php">Panier</a></li>
+            
             <?php if ($isadmin === true) { ?>
             <li><a href="../admin.php">Page administrateur</a></li>
             <?php } ?>
