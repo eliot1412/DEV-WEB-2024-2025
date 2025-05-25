@@ -1,82 +1,75 @@
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+}
 
-    /* Modifications pour le conteneur des résultats */
+.volcano-card {
+    background: rgba(109, 7, 26, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.volcano-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.volcano-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.volcano-name {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: rgba(229, 197, 39, 0.903);
+}
+
+.volcano-description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+@media (max-width: 1600px) {
     .results-container {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr); /* 5 colonnes égales */
-        gap: 20px;
-        padding: 20px;
-        z-index: 2;
-        position: relative;
-        width: 95%;
-        margin: 0 auto;
+        grid-template-columns: repeat(4, 1fr);
     }
-    
-    /* Ajustement des cartes de volcans */
-    .volcano-card {
-        background: rgba(109, 7, 26, 0.8);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
-        color: white;
-        height: 100%; /* Uniformise la hauteur */
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Contenu des cartes */
-    .volcano-info {
-        padding: 15px;
-        flex-grow: 1; /* Permet un alignement uniforme */
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Styles existants conservés mais adaptés */
-    .volcano-image {
-        width: 100%;
-        height: 180px; /* Hauteur légèrement réduite */
-        object-fit: cover;
-    }
-    
-    .volcano-name {
-        font-size: 1.2rem; /* Taille réduite pour s'adapter */
-        margin-bottom: 8px;
-        color: rgba(229, 197, 39, 0.903);
-    }
-    
-    .volcano-description {
-        font-size: 0.9rem; /* Taille réduite */
-        margin-bottom: 15px;
-        flex-grow: 1; /* Pousse le bouton vers le bas */
-    }
-    
-    /* Adaptation pour les écrans plus petits */
-    @media (max-width: 1600px) {
-        .results-container {
-            grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur écrans moyens */
-        }
-    }
-    
-    @media (max-width: 1200px) {
-        .results-container {
-            grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur tablettes */
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .results-container {
-            grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur mobiles */
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .results-container {
-            grid-template-columns: 1fr; /* 1 colonne sur petits mobiles */
-        }
-    }
+}
 
-    /* Pour rendre toute la carte cliquable */
+@media (max-width: 1200px) {
+    .results-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .results-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .results-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .volcano-link {
     text-decoration: none;
     color: inherit;
@@ -95,14 +88,89 @@
     cursor: pointer;
 }
 
-/* Ajoute un effet subtil à l'image aussi */
-.volcano-image {
-    transition: transform 0.3s ease;
-}
-
 .volcano-link:hover .volcano-image {
     transform: scale(1.05);
 }
 
+.sort-section {
+    position: relative;    /* <— rend le z-index effectif */
+    z-index: 10;           /* <— assez haut pour être au-dessus de tout */
+    width: 95%;
+    margin: 20px auto;
+    text-align: center;
+}
 
+.sort-section h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+.sort-section, 
+.sort-section * {
+    pointer-events: auto;
+}
 
+.sort-options {
+    display: inline-flex;
+    gap: 0.75rem;
+}
+
+.sort-btn {
+    background: rgba(229, 197, 39, 0.9);
+    border: none;
+    color: #6d071a;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sort-btn:hover {
+    background: rgba(255, 220, 77, 1);
+    transform: translateY(-2px);
+}
+
+.sort-btn.active {
+    background: #ffe04d;
+    box-shadow: 0 0 8px rgba(255, 224, 77, 0.6);
+}
+
+/* pour animer le repositionnement en grid */
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    transition: all 0.5s ease;
+  }
+  
+  /* chaque item glisse un peu au repositionnement */
+  .volcano-link {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* beaux boutons jaunes avec effet */
+  .sort-btn,
+  .filter-btn {
+    background: #ffe04d;
+    color: #6d071a;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .sort-btn:hover,
+  .filter-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .sort-btn.active,
+  .filter-btn.active {
+    box-shadow: 0 0 0 3px rgba(255,224,77,0.8);
+  }
+  
