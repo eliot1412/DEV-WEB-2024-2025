@@ -22,6 +22,7 @@ $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur .
   <title>Paiement</title>
   <link rel="stylesheet" href="../head.css">
   <link rel="stylesheet" href="paiement.css">
+  <script src="js/theme.js" defer=""></script>
 
 </head>
 <body>
@@ -35,6 +36,8 @@ $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur .
                 <li><a href="../log.php">Connexion</a></li>
                 <li><a href="../choice.php">Voyages</a></li>
                 <li><a href="../aides.php">Aides</a></li>
+                <li></li><a href="panier.php">Panier</a></li>
+                
             </ul>
         </div>
         <a href="../profile.php"><img src="../pp.jpg" alt="profile"></a>
