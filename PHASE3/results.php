@@ -16,7 +16,6 @@ if (file_exists($jsonFile)) {
     }
 }
 
-// 4. Si le fichier est vide ou n'existe pas, on utilise des données par défaut
 if (empty($volcanoData)) {
     $volcanoData = [
         [
@@ -39,7 +38,7 @@ if (empty($volcanoData)) {
     <link rel="stylesheet" type="text/css" href="head.css">
     <link rel="stylesheet" type="text/css" href="results.css">
     <link rel="stylesheet" type="text/css" href="choice.css">
-    <script src="js/theme.js" defer></script>
+    <script src="results.js"></script>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -56,7 +55,6 @@ if (empty($volcanoData)) {
                 <li><a href="log.php">Connexion</a></li>
                 <li><a href="choice.php">Voyages</a></li>
                 <li><a href="aides.php">Aides</a></li>
-                <li><a href="panier.php">Panier</a></li>
             </ul>
         </div>
         <a href="profile.php">
@@ -85,13 +83,24 @@ if (empty($volcanoData)) {
             <img src="<?= $volcano['image'] ?? 'default.jpg' ?>"
                  alt="<?= $volcano['name'] ?? '' ?>"
                  class="volcano-image">
-            <div class="volcano-info">
-                <h3 class="volcano-name"><?= $volcano['name'] ?? '' ?></h3>
-                <p class="volcano-location"><?= $volcano['location'] ?? '' ?></p>
-                <div class="volcano-rating"><?= str_repeat('★', (int)($volcano['rating'] ?? 0)) ?></div>
-                <p class="volcano-price">À partir de <?= $volcano['price'] ?? '' ?></p>
-                <p class="volcano-description"><?= $volcano['description'] ?? '' ?></p>
-            </div>
+                 <div class="volcano-info"
+     data-start-date="<?= $volcano['start_date'] ?? '', ENT_QUOTES ?>"
+     data-end-date  ="<?= $volcano['end_date']   ?? '', ENT_QUOTES ?>">
+    <h3 class="volcano-name"><?= $volcano['name'] ?? '' ?></h3>
+    <p class="volcano-location"><?= $volcano['location'] ?? '' ?></p>
+    <div class="volcano-rating">
+      <?= str_repeat('★', (int)($volcano['rating'] ?? 0)) ?>
+    </div>
+    <p class="volcano-price">À partir de <?= $volcano['price'] ?? '' ?></p>
+    <p class="volcano-description"><?= $volcano['description'] ?? '' ?></p>
+
+    <p class="volcano-period">
+      <strong>Période :</strong>
+      du <?= date('d/m/Y', strtotime($volcano['start_date'] ?? '')) ?>
+      au <?= date('d/m/Y', strtotime($volcano['end_date']   ?? '')) ?>
+    </p>
+</div>
+
         </div>
     </a>
 <?php endforeach; ?>
@@ -104,5 +113,7 @@ if (empty($volcanoData)) {
         </a>
         <p>|S.A.V|...</p>
     </div>
+   
+   
 </body>
 </html>
